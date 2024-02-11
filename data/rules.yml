@@ -1,0 +1,53 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: recommend popular movies
+  steps:
+  - intent: request_popular_content
+  - action: recommend_popular_content
+
+- rule: search_movies
+  steps:
+  - intent: search_movies
+  - action: search_movies
+
+- rule: recommend_personalised_recommendation_DNN
+  steps:
+  - intent: recommend_personalised_recommendation_DNN
+  - action: recommend_personalised_recommendation_DNN
+
+- rule: recommend_collaborative_filtering_MF
+  steps:
+  - intent: recommend_collaborative_filtering_MF
+  - action: recommend_collaborative_filtering_MF
+
+- rule: update_preferences
+  steps:
+  - intent: update_preferences
+  - action: update_preferences
+
+- rule: surprise_recommendations
+  steps:
+  - intent: surprise_recommendations
+  - action: surprise_recommendations
+
+- rule: recommend_movie_item2item_search
+  steps:
+  - intent: recommend_movie_item2item_search
+  - action: recommend_movie_item2item_search
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_catch_all_error

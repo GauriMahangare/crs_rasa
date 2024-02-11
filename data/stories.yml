@@ -1,0 +1,68 @@
+version: "3.1"
+
+stories:
+- story: greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: feedback_happy
+  steps:
+  - intent: mood_great
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: feedback_unhappy
+  steps:
+  - intent: mood_great
+  - action: utter_did_that_help
+  - intent: mood_unhappy
+  - action: utter_sorry_goodbye
+
+- story: check_for_trending_content
+  steps:
+  - intent: check_for_trending_content
+  - action: utter_popular_genres
+  - intent: request_popular_content
+  - action: recommend_popular_content
+
+- story: recommend_popular_movies_by_genre
+  steps:
+  - intent: request_popular_content
+  - action: recommend_popular_content
+
+- story: search_movies
+  steps:
+  - intent: search_movies
+  - action: search_movies
+
+- story: recommend_personalised_recommendation_DNN_happy
+  steps:
+  - intent: recommend_personalised_recommendation_DNN
+  - action: recommend_personalised_recommendation_DNN
+
+- story: recommend_collaborative_filtering_MF
+  steps:
+  - intent: recommend_collaborative_filtering_MF
+  - action: recommend_collaborative_filtering_MF
+
+- story: update_preferences
+  steps:
+  - intent: update_preferences
+  - action: update_preferences
+
+- story: surprise_recommendations
+  steps:
+  - intent: surprise_recommendations
+  - action: surprise_recommendations
+
+- story: recommend_movie_item2item_search
+  steps:
+  - intent: recommend_movie_item2item_search
+  - action: recommend_movie_item2item_search
+
+- story: handle_unexpected_user_input
+  steps:
+  - intent: fallback
+  - action: utter_catch_all_error

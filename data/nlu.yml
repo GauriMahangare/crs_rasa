@@ -1,0 +1,287 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - howdy
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - how can I help you today?
+    - hellooo
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - exit
+    - thanks
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+    - no
+    - not really
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: recommend_personalised_recommendation_DNN
+  examples: |
+    - Based on my love for [Titanic](title), what other films do you think I'd enjoy?"
+    - Can you recommend something similar to [Titanic](title) based on my taste?
+    - I prefer movies with a lot of [action](genre) and [suspense](genre), similar to [Titanic](title). Any suggestions?
+    - I'm feeling nostalgic for movies like [Titanic](title) from my childhood. What would you recommend?
+    - Any classic films similar to [Titanic](title) that capture the essence of a bygone era?
+    - I'm interested in watching highly acclaimed films similar to [Titanic](title). Any suggestions?
+- intent : recommend_collaborative_filtering_MF
+  examples: |
+    - What movies do users similar to me enjoy?
+    - Recommend movies that users with similar tastes liked.
+    - Find movies liked by users similar to [user](user)
+    - Show me movies that other users with similar viewing habits enjoyed.
+    - What movies are popular among users who liked [Titanic](title)?
+    - What are the top-rated movies among users with similar tastes?
+    - Show me the most popular movies among users like me
+    - What movies are trending among users with similar preferences?
+    - Do users with similar tastes also like [Titanic](title)
+    - How do my movie preferences compare to other users?
+    - Am I compatible with users who liked [Titanic](title)?
+- intent : update_preferences
+  examples: |
+    - Update my movie recommendations based on my recent views.
+    - I just watched [Titanic](title), can you adjust my recommendations accordingly?
+    - My tastes have changed, update my recommended movies.
+    - Adjust my recommended movies based on my feedback
+    - I liked [Titanic](title), can you refine my recommendations?
+    - how me more movies similar to [Titanic](title).
+- intent : surprise_recommendations
+  examples: |
+    - Recommend movies outside of my usual preferences.
+    - Show me a variety of movies liked by users similar to me
+    - I want to explore different genres, recommend diverse movies
+    - Recommend movies I might not have heard of but would enjoy.
+    - Show me hidden gems that align with my movie preferences.
+    - I want to discover new movies similar to my favorites.
+- intent: recommend_movie_item2item_search
+  examples: |
+    - suggest similar movie to [Titanic](title)
+    - suggest similar movie to [Matrix](title)
+    - suggest similar movie to [die heart](title)
+    - suggest similar movie to [breave heart](title)
+    - suggest similar movie to [the shaggy dog](title)
+    - suggest similar movie to [Jingle All the Way](title)
+    - suggest similar movie to [Father of the Bride Part II](title)
+    - suggest similar movie to [Rebel Without a Cause](title)
+    - suggest similar movie to [Toy Story](title)
+    - suggest similar movie to [Four Rooms](title)
+    - suggest similar movie to [Get Shorty](title)
+    - suggest similar movie to [Copycat](title)
+    - suggest similar movie to [Shanghai Triad](title)
+    - suggest similar movie to [8 Heads in a Duffel Bag](title)
+    - suggest similar movie to [Wedding Bell Blues](title)
+    - suggest similar movie to [Kika](title)
+    - I loved watching [Titanic](title), can you recommend something similar?
+    - I loved watching [Matrix](title), can you recommend something similar?
+    - I loved watching [die heart](title), can you recommend something similar?
+    - I loved watching [breave heart](title), can you recommend something similar?
+    - please suggest similar movie to [Titanic](title)
+    - please suggest similar movie to [Matrix](title)
+    - please suggest similar movie to [die heart](title)
+    - please suggest similar movie to [breave heart](title)
+    - Can you recommend a movie similar to [Titanic](title)
+    - Can you recommend a movie similar to [Matrix](title)
+    - Can you recommend a movie similar to [die heart](title)
+    - Can you recommend a movie similar to [breave heart](title)
+    - I loved [Titanic](title), what other movies would I enjoy?
+    - I loved [Matrix](title), what other movies would I enjoy?
+    - I loved [die heart](title), what other movies would I enjoy?
+    - I loved [breave heart](title), what other movies would I enjoy?
+    - Looking for something like [Titanic](title), any suggestions?
+    - Looking for something like [Matrix](title), any suggestions?
+    - Looking for something like [die heart](title), any suggestions?
+    - Looking for something like [breave heart](title), any suggestions?
+    - Looking for movies like [Titanic](title) that have won awards or received critical acclaim
+    - Looking for movies like [Matrix](title) that have won awards or received critical acclaim
+    - Looking for movies like [die heart](title) that have won awards or received critical acclaim
+    - Looking for movies like [breave heart](title) that have won awards or received critical acclaim
+- intent: check_for_trending_content
+  examples: |
+    - what is trending content today?
+    - what is trending
+    - suggest a movie
+    - any movie suggestions?
+    - Tell me what everyone is watching?
+    - what is everyone watching?
+    - what is every one watching?
+- intent: search_movies
+  examples: |
+    - search if this [black](search_string) is available to watch
+    - search if this [men in](search_string) is available to watch
+    - search if this [New Jersey Drive](search_string) is available to watch
+    - find movies with [black](search_string) in title.
+    - find movies with [men in](search_string) in title.
+    - find movies with [New Jersey Drive](search_string) in title.
+    - find movies by actor [George Clooney](search_string)
+    - find movies by actor [George](search_string)
+    - find movies by actor [Mrs. Sidney Drew](search_string)
+    - find movie by actress [Julia Roberts](search_string)
+    - find movie by actress [Julia](search_string)
+    - find movies by actoress [Mrs. Sidney Drew](search_string)
+    - find movies directed by [steven spielberg](search_string)
+    - find movies directed by [Quinton](search_string)
+    - Search for the movie titled [Titanic](search_string).
+    - Search for the movie titled [star wars](search_string).
+    - Find information about the film called [star trek](search_string).
+    - Look up details on the movie named [Titanic](search_string).
+    - Look up details on the movie named [star trek](search_string).
+    - Find movies starring [George Clooney](search_string)
+    - Find movies starring [tom](search_string)
+    - Find movies starring [Julia Roberts](search_string)
+    - Search for films featuring [George Clooney](search_string).
+    - Search for films featuring [George](search_string).
+    - Look up movies with [George Clooney](search_string) in the cast.
+    - Look up movies with [George](search_string) in the cast.
+    - Find movies directed by [steven spielberg](search_string).
+    - Search for films helmed by [steven spielberg](search_string).
+    - Look up movies directed by [steven spielberg](search_string).
+    - Find sequels to [Batman](search_string).
+    - Search for movies in the [marvel](search_string) series.
+    - Look up films from the [marvel](search_string) universe.
+- intent: request_popular_content
+  examples: |
+    - [Drama](genre)
+    - [Documentary](genre)
+    - [Animation](genre)
+    - [Comedy](genre)
+    - [Short](genre)
+    - [Romance](genre)
+    - [News](genre)
+    - [Fantasy](genre)
+    - [Horror](genre)
+    - [Biography](genre)
+    - [Music](genre)
+    - [Crime](genre)
+    - [Family](genre)
+    - [Adventure](genre)
+    - [Action](genre)
+    - [History](genre)
+    - [Mystery](genre)
+    - [Musical](genre)
+    - [War](genre)
+    - [Sci-Fi](genre)
+    - [Western](genre)
+    - [Thriller](genre)
+    - [Sport](genre)
+    - [Film-Noir](genre)
+    - [Talk-Show](genre)
+    - [Game-Show](genre)
+    - [Adult](genre)
+    - [Reality-TV](genre)
+    - Find films in the [action](genre) genre.
+    - Search for [action](genre) movies.
+    - Look up movies categorized under [action](genre).
+    - what are popular movies in the [action](genre)?
+    - What are some popular movies right now in [action](genre)?
+    - Can you recommend some of the top-rated movies in [action](genre) currently?
+    - Can you recommend some of the most popular [action](genre) movies right now?
+    - What are some popular [action](genre) movies that audiences have been raving about?
+    - Can you recommend popular [action](genre) movies with high audience ratings?
+    - What are some popular [action](genre) movies at the moment?"
+    - What are the top-rated [action](genre) movies according to user reviews?
+    - What are some popular blockbuster [action](genre) movies currently showing in theaters?
+    - Can you recommend popular [action](genre) movies that have been box office hits?
+    - I would like to watch an [action](genre) movie
+    - I want to see an [action](genre) movie
+    - I would like to see an [action](genre) movie
+    - What [adventure](genre) movies can you recommend?
+    - Suggest an [adventure](genre) movie
+    - Show me an [animation](genre) movie
+    - I wonder if you can suggest a [comedy](genre) movie?
+    - Is there a [thrilling](genre) crime movie?
+    - I am going to the movies today and I wonder if there is a [documentary](genre) movies out there?
+    - I am planning a movie night today. What [drama](genre) movies are there?
+    - Show me [family](genre) movies, please?
+    - I want to watch a [fantasy](genre) movie
+    - any [fantasy](genre) movie suggestions?
+    - Can you recommend a [history](genre) movie?
+    - Oh, sorry, I meant [horror](genre) movies
+    - Please suggest a [musical](genre) movie
+    - The [mystery](genre) movies that are available
+    - I want something like... I don't know, maybe an [mystery](genre) movie?
+    - Can you recommend something in the realm of... um, [mystery](genre), maybe?
+- intent: fallback
+  examples: |
+    - I'm not sure what I'm looking for.
+    - I'm not sure what to ask.
+    - I didn't mean to trigger that.
+    - I'm confused
+    - I don't understand.
+    - That didn't make sense to me
+    - Can you recommend a good restaurant?
+    - How's the weather today?
+    - What time is it?
+    - Oops, I didn't mean to do that.

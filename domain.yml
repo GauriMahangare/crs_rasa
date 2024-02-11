@@ -1,0 +1,70 @@
+version: '3.1'
+intents:
+- affirm
+- bot_challenge
+- deny
+- goodbye
+- greet
+- mood_great
+- mood_unhappy
+- recommend_personalised_recommendation_DNN
+- recommend_collaborative_filtering_MF
+- update_preferences
+- surprise_recommendations
+- recommend_movie_item2item_search
+- check_for_trending_content
+- search_movies
+- request_popular_content
+- fallback
+entities:
+- title
+- actor
+- producer
+- director
+- genre
+- firstName
+- lastName
+- user
+- search_string
+actions:
+- utter_greet
+- utter_popular_genres
+- utter_goodbye
+- utter_did_that_help
+- recommend_popular_content
+- search_movies
+- recommend_movie_item2item_search
+- surprise_recommendations
+- update_preferences
+- recommend_collaborative_filtering_MF
+- recommend_personalised_recommendation_DNN
+responses:
+  utter_greet:
+  - text: Hey! How can I help you today?
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_help_more:
+  - text: Great, Anything else I can help you with?
+  utter_goodbye:
+  - text: Bye and have a good day.
+  utter_sorry_goodbye:
+  - text: Sorry I was not able to help. Bye and have a good day.
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_popular_genres:
+  - text: What kind of movie?
+  utter_popular_genres_result:
+  - text: Okay, here are the top trending movies today in.
+  utter_catch_all_error:
+  - text: I'm sorry, I didn't quite understand your message. Could you please rephrase or provide more details so I can assist you better? Thank you!.
+  utter_search_string_not_found:
+  - text: Sorry, movie not found
+  utter_genre_not_found:
+  - text: Sorry, genre not found. Please try again.
+  utter_more_help:
+  - text: Anything more I can help you with?
+  utter_default:
+  - text: Sorry I didn't get that. Can you rephrase?
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
