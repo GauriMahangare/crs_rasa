@@ -16,6 +16,7 @@ import numpy as np
 import tensorflow as tf
 import pickle
 import re
+import random
 # Models for content filtering based on cosine similarity
 similarity = pickle.load(
     open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/content_filtering/cosine_similarity.pkl", 'rb'))
@@ -319,10 +320,9 @@ class ActionRecommendMovieItem2ItemSearch(Action):
                 text="[ERROR-1]I'm sorry, I didn't quite understand your message. Could you please rephrase or provide more details so I can assist you better? Thank you!")
             return []
         else:
-            print(title_substring)
             measure = "COSINE"
             score_key = measure+"_" + 'score'
-            k = 5  # Number of movies to be recommended
+            k = 6  # Number of movies to be recommended
             query_embedding = V_reg.numpy()
             item_embeddings = V_reg.numpy()
             df, other_matching_titles = movie_neighbours(
@@ -342,7 +342,6 @@ class ActionRecommendMovieItem2ItemSearch(Action):
                                 'genres': row['genres'],
                                 }
                     m_list.append(new_list)
-                print(m_list)
                 dispatcher.utter_message(
                     text="Here's what I have found for '{text}'".format(text=title_substring))
                 concatenated_titles_with_ids = ""
@@ -356,10 +355,11 @@ class ActionSurpriseRecommendations(Action):
     """
 
     Args:
-        Action (_type_):
+        Action (_type_): We will use matrix factorisation to surprise the user.
+        We will exclude all the movies which this user has already rated.
 
     Returns:
-        _type_:
+        _type_: list of movies
     """
 
     def name(self) -> Text:
@@ -368,12 +368,46 @@ class ActionSurpriseRecommendations(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        try:
+            user_id_input = tracker.latest_message['entities'][0]['value']
+        except:
+            dispatcher.utter_message(
+                text="[ERROR-1]Unable to find the user")
+            return []
+        else:
+            measure = "COSINE"
+            # user_id = random.randint(1, 513)
+            user_id = int(user_id_input)
+            exclude_rated = "Yes"
+            k = 6  # Number of movies to be recommended
+            query_embedding = V_reg.numpy()[user_id]
+            item_embeddings = V_reg.numpy()
+            df = user_recommendations(
+                measure, query_embedding, item_embeddings)
+            rated_movies = ratings_df[ratings_df.user_id ==
+                                      user_id]["movie_id"].values
+            if exclude_rated == "Yes":
+                # remove movies that are already rated
+                df = df[df.movie_id.apply(
+                    lambda movie_id: movie_id not in rated_movies)]
+            recom_movie_df = df.sort_values(
+                ["score_key"], ascending=False).head(k)
+            m_list = []
+            for index, row in recom_movie_df.iterrows():
+                new_list = {'imdb_id': row['movie_id'],
+                            'title': row['titles'],
+                            'genres': row['genres']}
+                m_list.append(new_list)
+            concatenated_titles_with_ids = ""
+            concatenated_titles_with_ids = ', '.join(
+                f"{movie['title']} (IMDb ID: {movie['imdb_id']})" for movie in m_list)
+            dispatcher.utter_message(
+                text="Here are your surprised recommendations...")
+            dispatcher.utter_message(text=concatenated_titles_with_ids)
+            return []
 
-        dispatcher.utter_message(text="surprise_recommendations")
-        return []
 
-
-class ActionUpdatePreferences(Action):
+class ActionRecommendCollabFilteringU2U(Action):
     """
 
     Args:
@@ -384,35 +418,58 @@ class ActionUpdatePreferences(Action):
     """
 
     def name(self) -> Text:
-        return "update_preferences"
+        return "recommend_collaborative_filtering_u2u"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        dispatcher.utter_message(text="update_preferences")
-        return []
-
-
-class ActionRecommendCollabFilteringMF(Action):
-    """
-
-    Args:
-        Action (_type_):
-
-    Returns:
-        _type_:
-    """
-
-    def name(self) -> Text:
-        return "recommend_collaborative_filtering_MF"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        dispatcher.utter_message(text="recommend_collaborative_filtering_MF")
-        return []
+        try:
+            user_id_input = tracker.latest_message['entities'][0]['value']
+        except:
+            dispatcher.utter_message(
+                text="[ERROR-1]Unable to find the user")
+            return []
+        else:
+            index = int(user_id_input)
+            distances = collab_u2u_similarity[index]
+            similar_users = sorted(
+                list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:30]
+            users = []
+            for u_touple in similar_users:
+                # Append users only if Cosine Similarity > 0.3
+                if u_touple[1] > 0.3:
+                    # print("score - " + str(u_touple[1]))
+                    users.append(u_touple[0])
+            if not users:
+                print("No users matching with similarity score > 0.3")
+                dispatcher.utter_message(
+                    text="[ERROR-2]No users matching with similarity score > 0.3")
+                return []
+            else:
+                movies_watched_by_other_similar_users = ratings_df[ratings_df['user_id'].isin(
+                    users)]
+                rated_movies = ratings_df[ratings_df.user_id ==
+                                          index]["imdb_id"].values
+                movies_filtered = movies_watched_by_other_similar_users[movies_watched_by_other_similar_users.imdb_id.apply(
+                    lambda imdb_id: imdb_id not in rated_movies)]
+                unique_values_list = movies_filtered['imdb_id'].unique().tolist()[
+                    :6]
+                # Movies recommended to this user
+                recomm_movies = movie_list_full_df[movie_list_full_df['imdb_id'].isin(
+                    unique_values_list)]
+                m_list = []
+                for index, row in recomm_movies.iterrows():
+                    new_list = {'imdb_id': row['imdb_id'],
+                                'title': row['title']}
+                    m_list.append(new_list)
+                print(m_list)
+                concatenated_titles_with_ids = ""
+                concatenated_titles_with_ids = ', '.join(
+                    f"{movie['title']} (IMDb ID: {movie['imdb_id']})" for movie in m_list)
+                dispatcher.utter_message(
+                    text="Here's what others are watching...")
+                dispatcher.utter_message(text=concatenated_titles_with_ids)
+                return []
 
 
 class ActionRecommendPersonalisedRecommendationDNN(Action):
@@ -431,7 +488,49 @@ class ActionRecommendPersonalisedRecommendationDNN(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        dispatcher.utter_message(
-            text="recommend_personalised_recommendation_DNN")
-        return []
+        try:
+            user_id_input = tracker.latest_message['entities'][0]['value']
+        except:
+            dispatcher.utter_message(
+                text="[ERROR-1]Unable to find the user")
+            return []
+        else:
+            user_id = int(user_id_input)
+            movies_watched_by_user = DNN_ratings_model_df[DNN_ratings_model_df.user_id == user_id]
+            movies_not_watched = movie_list_full_df[
+                ~movie_list_full_df["ml_id"].isin(movies_watched_by_user.movie_id.values)]["ml_id"]
+            # extract movies from not watch list that other users have rated
+            movies_not_watched = list(set(movies_not_watched).intersection(
+                set(DNN_movie2movie_encoded.keys())))
+            # extract the index of these
+            movies_not_watched = [
+                [DNN_movie2movie_encoded.get(x)] for x in movies_not_watched]
+            # get user index
+            user_encoder = DNN_user2user_encoded.get(user_id)
+            user_input = np.array([[user_encoder]] * len(movies_not_watched))
+            movies_input = np.array(movies_not_watched)
+            # predict user ratings on unseen movies
+            user_ratings = DNN_ratings_model.predict(
+                [user_input, movies_input]).flatten()
+            print(user_ratings)
+            # Select top 10 movies with highest ratings
+            top_ratings_indices = user_ratings.argsort()[-10:][::-1]
+            # Get the original movie ids for recommended movies
+            recommended_movie_ids = [DNN_movie_encoded2movie.get(
+                movies_not_watched[x][0]) for x in top_ratings_indices]
+            # Movies recommended to this user
+            recomm_movies = movie_list_full_df[movie_list_full_df["ml_id"].isin(
+                recommended_movie_ids)]
+            m_list = []
+            for index, row in recomm_movies.iterrows():
+                new_list = {'imdb_id': row['imdb_id'],
+                            'title': row['title']}
+                m_list.append(new_list)
+            print(m_list)
+            concatenated_titles_with_ids = ""
+            concatenated_titles_with_ids = ', '.join(
+                f"{movie['title']} (IMDb ID: {movie['imdb_id']})" for movie in m_list)
+            dispatcher.utter_message(
+                text="Here's what I have found based on your liking")
+            dispatcher.utter_message(text=concatenated_titles_with_ids)
+            return []

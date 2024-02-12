@@ -2,42 +2,49 @@ version: '3.1'
 intents:
 - affirm
 - bot_challenge
+- check_for_trending_content
+- collab_recommendations_for_user_u2u
 - deny
+- fallback
 - goodbye
 - greet
 - mood_great
 - mood_unhappy
-- recommend_personalised_recommendation_DNN
-- recommend_collaborative_filtering_MF
-- update_preferences
-- surprise_recommendations
+- recommend_collaborative_filtering_u2u
 - recommend_movie_item2item_search
-- check_for_trending_content
-- search_movies
+- recommend_personalised_recommendation
+- recommend_personalised_recommendation_DNN
 - request_popular_content
-- fallback
+- search_movies
+- surprise_recommendations
+- surprise_recommendations_for_user
+- update_preferences
 entities:
+- user
 - title
+- genre
 - actor
 - producer
 - director
-- genre
 - firstName
 - lastName
-- user
 - search_string
 actions:
-- utter_greet
+- recommend_collaborative_filtering_u2u
+- utter_provide_collaborative_filtering_u2u
+- utter_provide_userid_personalised_recommendation
+- surprise_recommendations
+- recommend_personalised_recommendation_DNN
+- utter_provide_userid_surprise_recommendations
+- utter_provide_userid
+- recommend_popular_content
 - utter_popular_genres
+- recommend_movie_item2item_search
+- utter_greet
 - utter_goodbye
 - utter_did_that_help
-- recommend_popular_content
+- utter_confirm_preferences
 - search_movies
-- recommend_movie_item2item_search
-- surprise_recommendations
-- update_preferences
-- recommend_collaborative_filtering_MF
-- recommend_personalised_recommendation_DNN
 responses:
   utter_greet:
   - text: Hey! How can I help you today?
@@ -65,6 +72,14 @@ responses:
   - text: Anything more I can help you with?
   utter_default:
   - text: Sorry I didn't get that. Can you rephrase?
+  utter_confirm_preferences:
+  - text: Your preferences have been saved.
+  utter_provide_userid_surprise_recommendations:
+  - text: Please provide your user id.
+  utter_provide_userid_personalised_recommendation:
+  - text: Please provide your user id.
+  utter_provide_collaborative_filtering_u2u:
+  - text: Please provide your user id.
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

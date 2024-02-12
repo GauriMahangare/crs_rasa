@@ -25,6 +25,8 @@ stories:
   - intent: check_for_trending_content
   - action: utter_popular_genres
   - intent: request_popular_content
+    entities:
+    - genre: action
   - action: recommend_popular_content
 
 - story: recommend_popular_movies_by_genre
@@ -37,29 +39,43 @@ stories:
   - intent: search_movies
   - action: search_movies
 
-- story: recommend_personalised_recommendation_DNN_happy
+- story: recommend_personalised_recommendation_DNN
   steps:
   - intent: recommend_personalised_recommendation_DNN
+  - action: utter_provide_userid_personalised_recommendation
+  - intent: recommend_personalised_recommendation
+    entities:
+    - user: 56
   - action: recommend_personalised_recommendation_DNN
 
-- story: recommend_collaborative_filtering_MF
+- story: recommend_collaborative_filtering_u2u
   steps:
-  - intent: recommend_collaborative_filtering_MF
-  - action: recommend_collaborative_filtering_MF
+  - intent: recommend_collaborative_filtering_u2u
+  - action: utter_provide_collaborative_filtering_u2u
+  - intent: collab_recommendations_for_user_u2u
+    entities:
+    - user: 34
+  - action: recommend_collaborative_filtering_u2u
 
 - story: update_preferences
   steps:
   - intent: update_preferences
-  - action: update_preferences
+  - action: utter_confirm_preferences
 
 - story: surprise_recommendations
   steps:
   - intent: surprise_recommendations
+  - action: utter_provide_userid_surprise_recommendations
+  - intent: surprise_recommendations_for_user
+    entities:
+    - user: 45
   - action: surprise_recommendations
 
 - story: recommend_movie_item2item_search
   steps:
   - intent: recommend_movie_item2item_search
+    entities:
+    - title: action
   - action: recommend_movie_item2item_search
 
 - story: handle_unexpected_user_input

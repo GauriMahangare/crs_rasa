@@ -97,9 +97,13 @@ nlu:
     - I'm feeling nostalgic for movies like [Titanic](title) from my childhood. What would you recommend?
     - Any classic films similar to [Titanic](title) that capture the essence of a bygone era?
     - I'm interested in watching highly acclaimed films similar to [Titanic](title). Any suggestions?
-- intent : recommend_collaborative_filtering_MF
+    - Can you recommend something similar to [titanic]{"entity": "title", "value": "Titanic"} based on my taste
+    - Can you recommend something similar to [titanic]{"entity": "title", "value": "Titanic"}  based on my taste
+    - Can you recommend something similar to [titanic]{"entity": "title", "value": "Titanic"} based on my taste?
+- intent: recommend_collaborative_filtering_u2u
   examples: |
     - What movies do users similar to me enjoy?
+    - Show me a variety of movies liked by users similar to me
     - Recommend movies that users with similar tastes liked.
     - Find movies liked by users similar to [user](user)
     - Show me movies that other users with similar viewing habits enjoyed.
@@ -110,7 +114,8 @@ nlu:
     - Do users with similar tastes also like [Titanic](title)
     - How do my movie preferences compare to other users?
     - Am I compatible with users who liked [Titanic](title)?
-- intent : update_preferences
+    - Recommend movies that users with similar tastes liked
+- intent: update_preferences
   examples: |
     - Update my movie recommendations based on my recent views.
     - I just watched [Titanic](title), can you adjust my recommendations accordingly?
@@ -118,14 +123,14 @@ nlu:
     - Adjust my recommended movies based on my feedback
     - I liked [Titanic](title), can you refine my recommendations?
     - how me more movies similar to [Titanic](title).
-- intent : surprise_recommendations
+- intent: surprise_recommendations
   examples: |
     - Recommend movies outside of my usual preferences.
-    - Show me a variety of movies liked by users similar to me
     - I want to explore different genres, recommend diverse movies
     - Recommend movies I might not have heard of but would enjoy.
     - Show me hidden gems that align with my movie preferences.
     - I want to discover new movies similar to my favorites.
+    - Recommend movies outside of my usual preferences
 - intent: recommend_movie_item2item_search
   examples: |
     - suggest similar movie to [Titanic](title)
@@ -168,6 +173,10 @@ nlu:
     - Looking for movies like [Matrix](title) that have won awards or received critical acclaim
     - Looking for movies like [die heart](title) that have won awards or received critical acclaim
     - Looking for movies like [breave heart](title) that have won awards or received critical acclaim
+    - suggest similar movie to [boys life](title)
+    - suggest similar movie to [marked for death](title)
+    - suggest similar movie to [butterfy kiss]{"entity": "title", "value": "butterfly kiss"}
+    - suggest similar movie to [preacher's wife](title)
 - intent: check_for_trending_content
   examples: |
     - what is trending content today?
@@ -285,3 +294,48 @@ nlu:
     - How's the weather today?
     - What time is it?
     - Oops, I didn't mean to do that.
+- intent: surprise_recommendations_for_user
+  examples: |
+    - [2](user)
+    - [5](user)
+    - [45](user)
+    - [123](user)
+    - [4](user)
+- intent: collab_recommendations_for_user_u2u
+  examples: |
+    - [2](user)
+    - [5](user)
+    - [45](user)
+    - [123](user)
+    - [6](user)
+    - [7](user)
+    - [3](user)
+- intent: recommend_personalised_recommendation
+  examples: |
+    - [2](user)
+    - [5](user)
+    - [45](user)
+    - [123](user)
+    - [4](user)
+    - [6](user)
+- synonym: Titanic
+  examples: |
+    - titanic
+- synonym: butterfly kiss
+  examples: |
+    - butterfy kiss
+- regex: ^(1|[1-9]\d?|50[0-9]|510)$
+  examples: |
+    - [100](user)
+    - [1](user)
+    - [200](user)
+    - [310](user)
+    - [410](user)
+    - [450](user)
+    - [501](user)
+    - [50](user)
+    - [510](user)
+    - [5](user)
+    - [7](user)
+    - [88](user)
+    - [99](user)
