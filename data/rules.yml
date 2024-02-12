@@ -53,12 +53,6 @@ rules:
   steps:
   - intent: surprise_recommendations
   - action: surprise_recommendations
-#   - action: utter_provide_userid_surprise_recommendations
-
-# - rule: surprise_recommendations_for_user
-#   steps:
-#   - intent: surprise_recommendations_for_user
-#   - action: surprise_recommendations
 
 - rule: recommend_movie_item2item_search
   steps:

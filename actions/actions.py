@@ -370,15 +370,9 @@ class ActionSurpriseRecommendations(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # try:
-        #     user_id_input = tracker.latest_message['entities'][0]['value']
-        # except:
-        #     dispatcher.utter_message(
-        #         text="[ERROR-1]Unable to find the user")
-        #     return []
-        # else:
         measure = "COSINE"
-        user_id = random.randint(1, 513)
+        # user_id = random.randint(1, 513)
+        user_id = int(tracker.sender_id)
         # user_id = int(user_id_input)
         exclude_rated = "Yes"
         k = 6  # Number of movies to be recommended
@@ -425,15 +419,7 @@ class ActionRecommendCollabFilteringU2U(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # try:
-        #     user_id_input = tracker.latest_message['entities'][0]['value']
-        # except:
-        #     dispatcher.utter_message(
-        #         text="[ERROR-1]Unable to find the user")
-        #     return []
-        # else:
-        #     index = int(user_id_input)
-        index = random.randint(1, 513)
+        index = int(tracker.sender_id)
         distances = collab_u2u_similarity[index]
         similar_users = sorted(
             list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:30]
@@ -491,15 +477,8 @@ class ActionRecommendPersonalisedRecommendationDNN(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # try:
-        #     user_id_input = tracker.latest_message['entities'][0]['value']
-        # except:
-        #     dispatcher.utter_message(
-        #         text="[ERROR-1]Unable to find the user")
-        #     return []
-        # else:
-        # user_id = int(user_id_input)
-        user_id = random.randint(1, 513)
+        # user_id = random.randint(1, 513)
+        user_id = int(tracker.sender_id)
         movies_watched_by_user = DNN_ratings_model_df[DNN_ratings_model_df.user_id == user_id]
         movies_not_watched = movie_list_full_df[
             ~movie_list_full_df["ml_id"].isin(movies_watched_by_user.movie_id.values)]["ml_id"]

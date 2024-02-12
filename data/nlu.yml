@@ -133,34 +133,34 @@ nlu:
     - Recommend movies outside of my usual preferences
 - intent: recommend_movie_item2item_search
   examples: |
-    - suggest similar movie to [Titanic](title)
-    - suggest similar movie to [Matrix](title)
-    - suggest similar movie to [die heart](title)
-    - suggest similar movie to [breave heart](title)
-    - suggest similar movie to [the shaggy dog](title)
-    - suggest similar movie to [Jingle All the Way](title)
-    - suggest similar movie to [Father of the Bride Part II](title)
-    - suggest similar movie to [Rebel Without a Cause](title)
-    - suggest similar movie to [Toy Story](title)
-    - suggest similar movie to [Four Rooms](title)
-    - suggest similar movie to [Get Shorty](title)
-    - suggest similar movie to [Copycat](title)
-    - suggest similar movie to [Shanghai Triad](title)
-    - suggest similar movie to [8 Heads in a Duffel Bag](title)
-    - suggest similar movie to [Wedding Bell Blues](title)
-    - suggest similar movie to [Kika](title)
+    - suggest similar movies to [Titanic](title)
+    - suggest similar movies to [Matrix](title)
+    - suggest similar movies to [die heart](title)
+    - suggest similar movies to [breave heart](title)
+    - suggest similar movies to [the shaggy dog](title)
+    - suggest similar movies to [Jingle All the Way](title)
+    - suggest similar movies to [Father of the Bride Part II](title)
+    - suggest similar movies to [Rebel Without a Cause](title)
+    - suggest similar movies to [Toy Story](title)
+    - suggest similar movies to [Four Rooms](title)
+    - suggest similar movies to [Get Shorty](title)
+    - suggest similar movies to [Copycat](title)
+    - suggest similar movies to [Shanghai Triad](title)
+    - suggest similar movies to [8 Heads in a Duffel Bag](title)
+    - suggest similar movies to [Wedding Bell Blues](title)
+    - suggest similar movies to [Kika](title)
     - I loved watching [Titanic](title), can you recommend something similar?
     - I loved watching [Matrix](title), can you recommend something similar?
     - I loved watching [die heart](title), can you recommend something similar?
     - I loved watching [breave heart](title), can you recommend something similar?
-    - please suggest similar movie to [Titanic](title)
-    - please suggest similar movie to [Matrix](title)
-    - please suggest similar movie to [die heart](title)
-    - please suggest similar movie to [breave heart](title)
-    - Can you recommend a movie similar to [Titanic](title)
-    - Can you recommend a movie similar to [Matrix](title)
-    - Can you recommend a movie similar to [die heart](title)
-    - Can you recommend a movie similar to [breave heart](title)
+    - please suggest similar movies to [Titanic](title)
+    - please suggest similar movies to [Matrix](title)
+    - please suggest similar movies to [die heart](title)
+    - please suggest similar movies to [breave heart](title)
+    - Can you recommend a movies similar to [Titanic](title)
+    - Can you recommend a movies similar to [Matrix](title)
+    - Can you recommend a movies similar to [die heart](title)
+    - Can you recommend a movies similar to [breave heart](title)
     - I loved [Titanic](title), what other movies would I enjoy?
     - I loved [Matrix](title), what other movies would I enjoy?
     - I loved [die heart](title), what other movies would I enjoy?
@@ -173,10 +173,11 @@ nlu:
     - Looking for movies like [Matrix](title) that have won awards or received critical acclaim
     - Looking for movies like [die heart](title) that have won awards or received critical acclaim
     - Looking for movies like [breave heart](title) that have won awards or received critical acclaim
-    - suggest similar movie to [boys life](title)
-    - suggest similar movie to [marked for death](title)
-    - suggest similar movie to [butterfy kiss]{"entity": "title", "value": "butterfly kiss"}
-    - suggest similar movie to [preacher's wife](title)
+    - suggest similar movies to [boys life](title)
+    - suggest similar movies to [marked for death](title)
+    - suggest similar movies to [butterfy kiss]{"entity": "title", "value": "butterfly kiss"}
+    - suggest similar movies to [preacher's wife](title)
+    - find movies like
 - intent: check_for_trending_content
   examples: |
     - what is trending content today?
@@ -294,48 +295,3 @@ nlu:
     - How's the weather today?
     - What time is it?
     - Oops, I didn't mean to do that.
-- intent: surprise_recommendations_for_user
-  examples: |
-    - [2](user)
-    - [5](user)
-    - [45](user)
-    - [123](user)
-    - [4](user)
-- intent: collab_recommendations_for_user_u2u
-  examples: |
-    - [2](user)
-    - [5](user)
-    - [45](user)
-    - [123](user)
-    - [6](user)
-    - [7](user)
-    - [3](user)
-- intent: recommend_personalised_recommendation
-  examples: |
-    - [2](user)
-    - [5](user)
-    - [45](user)
-    - [123](user)
-    - [4](user)
-    - [6](user)
-- synonym: Titanic
-  examples: |
-    - titanic
-- synonym: butterfly kiss
-  examples: |
-    - butterfy kiss
-- regex: ^(1|[1-9]\d?|50[0-9]|510)$
-  examples: |
-    - [100](user)
-    - [1](user)
-    - [200](user)
-    - [310](user)
-    - [410](user)
-    - [450](user)
-    - [501](user)
-    - [50](user)
-    - [510](user)
-    - [5](user)
-    - [7](user)
-    - [88](user)
-    - [99](user)
