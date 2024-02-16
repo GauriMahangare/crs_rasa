@@ -18,7 +18,7 @@ stories:
   - intent: mood_great
   - action: utter_did_that_help
   - intent: mood_unhappy
-  - action: utter_sorry_goodbye
+  - action: utter_sorry
 
 - story: check_for_trending_content
   steps:

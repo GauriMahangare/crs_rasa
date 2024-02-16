@@ -6,6 +6,7 @@ nlu:
     - howdy
     - hello
     - hi
+    - hi again
     - hello there
     - good morning
     - good evening
@@ -52,6 +53,7 @@ nlu:
     - perfect
     - great
     - amazing
+    - perfect
     - feeling like a king
     - wonderful
     - I am feeling very good
@@ -83,6 +85,11 @@ nlu:
     - so sad
     - no
     - not really
+    - not sure i like any of these movies
+    - not sure I like any of these
+    - I don't like any of these
+    - humm, not sure I like any of these
+    -
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -122,7 +129,6 @@ nlu:
     - My tastes have changed, update my recommended movies.
     - Adjust my recommended movies based on my feedback
     - I liked [Titanic](title), can you refine my recommendations?
-    - how me more movies similar to [Titanic](title).
 - intent: surprise_recommendations
   examples: |
     - Recommend movies outside of my usual preferences.
@@ -177,16 +183,31 @@ nlu:
     - suggest similar movies to [marked for death](title)
     - suggest similar movies to [butterfy kiss]{"entity": "title", "value": "butterfly kiss"}
     - suggest similar movies to [preacher's wife](title)
+    - can you recommend similar movies to [preacher's wife](title)
+    - can you recommend similar movies based on [preacher's wife](title)
+    - okay, can you recommend similar movies based on [preacher's wife](title)
+    - can you recommend more movies to [preacher's wife](title)
     - find movies like
+    - show me more movies similar to [Titanic](title).
+    - recommend movies similar to [Titanic](title).
+    - recommend similar movies to [Matrix](title)
+    - recommend similar movies to [Wedding Bell Blues](title)
+    - show movies similar to [Titanic](title).
+    - show movies similar to [Matrix](title).
+    - show movies similar to [Wedding Bell Blues](title).
 - intent: check_for_trending_content
   examples: |
     - what is trending content today?
     - what is trending
     - suggest a movie
     - any movie suggestions?
+    - can you recommend some trending movies?
+    - Recommend me some popular movies.
     - Tell me what everyone is watching?
     - what is everyone watching?
     - what is every one watching?
+    - recommend something to watch
+    - suggest something to watch tonight
 - intent: search_movies
   examples: |
     - search if this [black](search_string) is available to watch
@@ -275,14 +296,15 @@ nlu:
     - I am going to the movies today and I wonder if there is a [documentary](genre) movies out there?
     - I am planning a movie night today. What [drama](genre) movies are there?
     - Show me [family](genre) movies, please?
-    - I want to watch a [fantasy](genre) movie
+    - I want to watch a [fantasy](genre) movies
     - any [fantasy](genre) movie suggestions?
-    - Can you recommend a [history](genre) movie?
+    - Can you recommend a [history](genre) movies?
     - Oh, sorry, I meant [horror](genre) movies
-    - Please suggest a [musical](genre) movie
+    - Please suggest a [musical](genre) movies
     - The [mystery](genre) movies that are available
     - I want something like... I don't know, maybe an [mystery](genre) movie?
     - Can you recommend something in the realm of... um, [mystery](genre), maybe?
+    - can you recommend some [thirller](genre) movies to watch?
 - intent: fallback
   examples: |
     - I'm not sure what I'm looking for.

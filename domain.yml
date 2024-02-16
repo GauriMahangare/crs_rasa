@@ -46,13 +46,15 @@ responses:
   utter_help_more:
   - text: Great, Anything else I can help you with?
   utter_goodbye:
-  - text: Nice chatting with you! Bye and have a good rest of the day.
+  - text: Nice chatting with you! Please don't forget to rate the movie. Bye and happy watching!!.
   utter_sorry_goodbye:
   - text: Sorry I was not able to help. Bye and have a good day.
+  utter_sorry:
+  - text: Oops! I'm really sorry about that. It seems like I made a mistake with my recommendation. I'm constantly learning and improving, so I'll make sure to do better next time! Do you want to see what other's are watching? or you can simply say "Suggest similar movies to xxx "
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_popular_genres:
-  - text: What kind of movie?
+  - text: Sure, What genre of movie you want to know about?
   utter_popular_genres_result:
   - text: Okay, here are the top trending movies today in.
   utter_catch_all_error:
