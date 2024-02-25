@@ -1,0 +1,172 @@
+{
+  "recommend_movie_item2item_search": {
+    "precision": 0.8870967741935484,
+    "recall": 0.9821428571428571,
+    "f1-score": 0.9322033898305085,
+    "support": 56,
+    "confused_with": {
+      "mood_great": 1
+    }
+  },
+  "request_popular_content": {
+    "precision": 0.7971014492753623,
+    "recall": 0.9016393442622951,
+    "f1-score": 0.8461538461538461,
+    "support": 61,
+    "confused_with": {
+      "check_for_trending_content": 4,
+      "search_movies": 2
+    }
+  },
+  "affirm": {
+    "precision": 0.5,
+    "recall": 0.16666666666666666,
+    "f1-score": 0.25,
+    "support": 6,
+    "confused_with": {
+      "mood_unhappy": 2,
+      "update_preferences": 1,
+      "request_popular_content": 1
+    }
+  },
+  "greet": {
+    "precision": 0.7777777777777778,
+    "recall": 0.4117647058823529,
+    "f1-score": 0.5384615384615384,
+    "support": 17,
+    "confused_with": {
+      "mood_great": 3,
+      "fallback": 2
+    }
+  },
+  "deny": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 7,
+    "confused_with": {
+      "mood_unhappy": 6,
+      "request_popular_content": 1
+    }
+  },
+  "recommend_personalised_recommendation_DNN": {
+    "precision": 0.6666666666666666,
+    "recall": 0.4444444444444444,
+    "f1-score": 0.5333333333333333,
+    "support": 9,
+    "confused_with": {
+      "request_popular_content": 4,
+      "recommend_movie_item2item_search": 1
+    }
+  },
+  "recommend_collaborative_filtering_u2u": {
+    "precision": 0.9166666666666666,
+    "recall": 0.8461538461538461,
+    "f1-score": 0.8799999999999999,
+    "support": 13,
+    "confused_with": {
+      "recommend_movie_item2item_search": 2
+    }
+  },
+  "check_for_trending_content": {
+    "precision": 0.4666666666666667,
+    "recall": 0.6363636363636364,
+    "f1-score": 0.5384615384615385,
+    "support": 11,
+    "confused_with": {
+      "request_popular_content": 4
+    }
+  },
+  "search_movies": {
+    "precision": 0.9142857142857143,
+    "recall": 1.0,
+    "f1-score": 0.955223880597015,
+    "support": 32,
+    "confused_with": {}
+  },
+  "update_preferences": {
+    "precision": 0.6666666666666666,
+    "recall": 0.8,
+    "f1-score": 0.7272727272727272,
+    "support": 5,
+    "confused_with": {
+      "recommend_personalised_recommendation_DNN": 1
+    }
+  },
+  "mood_unhappy": {
+    "precision": 0.5185185185185185,
+    "recall": 0.7,
+    "f1-score": 0.5957446808510639,
+    "support": 20,
+    "confused_with": {
+      "fallback": 2,
+      "deny": 2
+    }
+  },
+  "surprise_recommendations": {
+    "precision": 1.0,
+    "recall": 0.16666666666666666,
+    "f1-score": 0.2857142857142857,
+    "support": 6,
+    "confused_with": {
+      "recommend_movie_item2item_search": 3,
+      "recommend_personalised_recommendation_DNN": 1
+    }
+  },
+  "fallback": {
+    "precision": 0.5,
+    "recall": 0.6,
+    "f1-score": 0.5454545454545454,
+    "support": 10,
+    "confused_with": {
+      "mood_great": 1,
+      "greet": 1
+    }
+  },
+  "mood_great": {
+    "precision": 0.5,
+    "recall": 0.4375,
+    "f1-score": 0.4666666666666667,
+    "support": 16,
+    "confused_with": {
+      "mood_unhappy": 4,
+      "fallback": 2
+    }
+  },
+  "bot_challenge": {
+    "precision": 0.6666666666666666,
+    "recall": 1.0,
+    "f1-score": 0.8,
+    "support": 4,
+    "confused_with": {}
+  },
+  "goodbye": {
+    "precision": 0.6666666666666666,
+    "recall": 0.2,
+    "f1-score": 0.30769230769230765,
+    "support": 10,
+    "confused_with": {
+      "request_popular_content": 2,
+      "search_movies": 1
+    }
+  },
+  "accuracy": 0.7420494699646644,
+  "macro avg": {
+    "precision": 0.6527987646281825,
+    "recall": 0.5808338854739228,
+    "f1-score": 0.575148921280586,
+    "support": 283
+  },
+  "weighted avg": {
+    "precision": 0.7380459712969539,
+    "recall": 0.7420494699646644,
+    "f1-score": 0.7196697521827792,
+    "support": 283
+  },
+  "micro avg": {
+    "precision": 0.7420494699646644,
+    "recall": 0.7420494699646644,
+    "f1-score": 0.7420494699646644,
+    "support": 283
+  }
+}

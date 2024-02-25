@@ -1,0 +1,55 @@
+{
+  "user": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1,
+    "confused_with": {}
+  },
+  "search_string": {
+    "precision": 0.9130434782608695,
+    "recall": 0.7368421052631579,
+    "f1-score": 0.8155339805825242,
+    "support": 57,
+    "confused_with": {
+      "genre": 2
+    }
+  },
+  "title": {
+    "precision": 0.9326923076923077,
+    "recall": 0.776,
+    "f1-score": 0.8471615720524018,
+    "support": 125,
+    "confused_with": {
+      "search_string": 1
+    }
+  },
+  "genre": {
+    "precision": 0.9122807017543859,
+    "recall": 0.7123287671232876,
+    "f1-score": 0.8,
+    "support": 73,
+    "confused_with": {
+      "title": 1
+    }
+  },
+  "micro avg": {
+    "precision": 0.9227053140096618,
+    "recall": 0.74609375,
+    "f1-score": 0.8250539956803455,
+    "support": 256
+  },
+  "macro avg": {
+    "precision": 0.6895041219268907,
+    "recall": 0.5562927180966113,
+    "f1-score": 0.6156738881587316,
+    "support": 256
+  },
+  "weighted avg": {
+    "precision": 0.9188535466815555,
+    "recall": 0.74609375,
+    "f1-score": 0.8233618492177895,
+    "support": 256
+  },
+  "accuracy": 0.9577142857142857
+}

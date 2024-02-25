@@ -1,0 +1,886 @@
+[
+  {
+    "text": "I prefer movies with a lot of action and suspense, similar to Titanic. Any suggestions?",
+    "entities": [
+      {
+        "start": 30,
+        "end": 36,
+        "value": "action",
+        "entity": "genre"
+      },
+      {
+        "start": 41,
+        "end": 49,
+        "value": "suspense",
+        "entity": "genre"
+      },
+      {
+        "start": 62,
+        "end": 69,
+        "value": "Titanic",
+        "entity": "title"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "genre",
+        "start": 30,
+        "end": 36,
+        "confidence_entity": 0.9998779296875,
+        "value": "Action",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "title",
+        "start": 62,
+        "end": 69,
+        "confidence_entity": 0.9994264841079712,
+        "value": "Titanic",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Adjust my recommended movies based on my feedback",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "search_string",
+        "start": 41,
+        "end": 49,
+        "confidence_entity": 0.9522677063941956,
+        "value": "feedback",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Recommend movies I might not have heard of but would enjoy.",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "title",
+        "start": 34,
+        "end": 42,
+        "confidence_entity": 0.7475530505180359,
+        "value": "heard of",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "suggest similar movies to Toy Story",
+    "entities": [
+      {
+        "start": 26,
+        "end": 35,
+        "value": "Toy Story",
+        "entity": "title"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "genre",
+        "start": 30,
+        "end": 35,
+        "confidence_entity": 0.9887891411781311,
+        "value": "Story",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "search if this New Jersey Drive is available to watch",
+    "entities": [
+      {
+        "start": 15,
+        "end": 31,
+        "value": "New Jersey Drive",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "search_string",
+        "start": 19,
+        "end": 31,
+        "confidence_entity": 0.6835638880729675,
+        "value": "Jersey Drive",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "find movies with men in in title.",
+    "entities": [
+      {
+        "start": 17,
+        "end": 23,
+        "value": "men in",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "search_string",
+        "start": 17,
+        "end": 26,
+        "confidence_entity": 0.9907105565071106,
+        "value": "men in in",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "find movies with New Jersey Drive in title.",
+    "entities": [
+      {
+        "start": 17,
+        "end": 33,
+        "value": "New Jersey Drive",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "search_string",
+        "start": 21,
+        "end": 36,
+        "confidence_entity": 0.5636102557182312,
+        "value": "Jersey Drive in",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Search for the movie titled star wars.",
+    "entities": [
+      {
+        "start": 28,
+        "end": 37,
+        "value": "star wars",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "search_string",
+        "start": 28,
+        "end": 32,
+        "confidence_entity": 0.9989818930625916,
+        "value": "star",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "genre",
+        "start": 33,
+        "end": 37,
+        "confidence_entity": 0.3279917538166046,
+        "value": "wars",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Find movies starring tom",
+    "entities": [
+      {
+        "start": 21,
+        "end": 24,
+        "value": "tom",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Look up movies with George Clooney in the cast.",
+    "entities": [
+      {
+        "start": 20,
+        "end": 34,
+        "value": "George Clooney",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "search_string",
+        "start": 20,
+        "end": 37,
+        "confidence_entity": 0.6217259168624878,
+        "value": "George Clooney in",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Look up movies with George in the cast.",
+    "entities": [
+      {
+        "start": 20,
+        "end": 26,
+        "value": "George",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "search_string",
+        "start": 20,
+        "end": 29,
+        "confidence_entity": 0.9463998079299927,
+        "value": "George in",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Find sequels to Batman.",
+    "entities": [
+      {
+        "start": 16,
+        "end": 22,
+        "value": "Batman",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Short",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "Short",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "title",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.8371195793151855,
+        "value": "Short",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Romance",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "Romance",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "News",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "News",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Sci-Fi",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "Sci-Fi",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Film-Noir",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "Film-Noir",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Talk-Show",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "Talk-Show",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Game-Show",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "Game-Show",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Adult",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "Adult",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Can you recommend some of the top-rated movies in action currently?",
+    "entities": [
+      {
+        "start": 50,
+        "end": 56,
+        "value": "action",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "genre",
+        "start": 50,
+        "end": 56,
+        "confidence_entity": 0.9998756647109985,
+        "value": "Action",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "genre",
+        "start": 57,
+        "end": 66,
+        "confidence_entity": 0.8872057795524597,
+        "value": "currently",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "What are the top-rated action movies according to user reviews?",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "value": "action",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "genre",
+        "start": 23,
+        "end": 29,
+        "confidence_entity": 0.9998922348022461,
+        "value": "Action",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "user",
+        "start": 50,
+        "end": 54,
+        "confidence_entity": 0.9868528246879578,
+        "value": "user",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "What are some popular blockbuster action movies currently showing in theaters?",
+    "entities": [
+      {
+        "start": 34,
+        "end": 40,
+        "value": "action",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "genre",
+        "start": 22,
+        "end": 33,
+        "confidence_entity": 0.6416525840759277,
+        "value": "blockbuster",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "genre",
+        "start": 34,
+        "end": 40,
+        "confidence_entity": 0.999923825263977,
+        "value": "Action",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Please suggest a musical movies",
+    "entities": [
+      {
+        "start": 17,
+        "end": 24,
+        "value": "musical",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "can you recommend some thirller movies to watch?",
+    "entities": [
+      {
+        "start": 23,
+        "end": 31,
+        "value": "thirller",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "How's the weather today?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "title",
+        "start": 4,
+        "end": 5,
+        "confidence_entity": 0.6446987986564636,
+        "value": "s",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "title",
+        "start": 10,
+        "end": 17,
+        "confidence_entity": 0.7373729944229126,
+        "value": "weather",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "no way",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "title",
+        "start": 3,
+        "end": 6,
+        "confidence_entity": 0.9977797865867615,
+        "value": "way",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my day was horrible",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "genre",
+        "start": 11,
+        "end": 19,
+        "confidence_entity": 0.9185577034950256,
+        "value": "horrible",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Find movies liked by users similar to user",
+    "entities": [
+      {
+        "start": 38,
+        "end": 42,
+        "value": "user",
+        "entity": "user"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to discover new movies similar to my favorites.",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "search_string",
+        "start": 19,
+        "end": 22,
+        "confidence_entity": 0.995547890663147,
+        "value": "new",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "suggest similar movies to the shaggy dog",
+    "entities": [
+      {
+        "start": 26,
+        "end": 40,
+        "value": "the shaggy dog",
+        "entity": "title"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "suggest similar movies to Father of the Bride Part II",
+    "entities": [
+      {
+        "start": 26,
+        "end": 53,
+        "value": "Father of the Bride Part II",
+        "entity": "title"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "title",
+        "start": 36,
+        "end": 39,
+        "confidence_entity": 0.9898630380630493,
+        "value": "the",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "title",
+        "start": 40,
+        "end": 50,
+        "confidence_entity": 0.5221449732780457,
+        "value": "Bride Part",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "suggest similar movies to Rebel Without a Cause",
+    "entities": [
+      {
+        "start": 26,
+        "end": 47,
+        "value": "Rebel Without a Cause",
+        "entity": "title"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "title",
+        "start": 26,
+        "end": 31,
+        "confidence_entity": 0.9766628742218018,
+        "value": "Rebel",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "title",
+        "start": 40,
+        "end": 41,
+        "confidence_entity": 0.9980023503303528,
+        "value": "a",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "suggest similar movies to Get Shorty",
+    "entities": [
+      {
+        "start": 26,
+        "end": 36,
+        "value": "Get Shorty",
+        "entity": "title"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "search_string",
+        "start": 26,
+        "end": 29,
+        "confidence_entity": 0.4927559792995453,
+        "value": "Get",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "genre",
+        "start": 30,
+        "end": 36,
+        "confidence_entity": 0.975892961025238,
+        "value": "Shorty",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "suggest similar movies to Copycat",
+    "entities": [
+      {
+        "start": 26,
+        "end": 33,
+        "value": "Copycat",
+        "entity": "title"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "suggest similar movies to boys life",
+    "entities": [
+      {
+        "start": 26,
+        "end": 35,
+        "value": "boys life",
+        "entity": "title"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "title",
+        "start": 31,
+        "end": 35,
+        "confidence_entity": 0.9863903522491455,
+        "value": "life",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "suggest similar movies to marked for death",
+    "entities": [
+      {
+        "start": 26,
+        "end": 42,
+        "value": "marked for death",
+        "entity": "title"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "search if this black is available to watch",
+    "entities": [
+      {
+        "start": 15,
+        "end": 20,
+        "value": "black",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "find movies with black in title.",
+    "entities": [
+      {
+        "start": 17,
+        "end": 22,
+        "value": "black",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "find movies directed by Quinton",
+    "entities": [
+      {
+        "start": 24,
+        "end": 31,
+        "value": "Quinton",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Search for the movie titled Titanic.",
+    "entities": [
+      {
+        "start": 28,
+        "end": 35,
+        "value": "Titanic",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "title",
+        "start": 28,
+        "end": 35,
+        "confidence_entity": 0.9944086670875549,
+        "value": "Titanic",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Find information about the film called star trek.",
+    "entities": [
+      {
+        "start": 39,
+        "end": 48,
+        "value": "star trek",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "genre",
+        "start": 5,
+        "end": 16,
+        "confidence_entity": 0.9624866247177124,
+        "value": "information",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "search_string",
+        "start": 39,
+        "end": 43,
+        "confidence_entity": 0.9989388585090637,
+        "value": "star",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Look up details on the movie named star trek.",
+    "entities": [
+      {
+        "start": 35,
+        "end": 44,
+        "value": "star trek",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "search_string",
+        "start": 35,
+        "end": 39,
+        "confidence_entity": 0.9916484355926514,
+        "value": "star",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Biography",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "Biography",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Crime",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "Crime",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Western",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "Western",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Reality-TV",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "Reality-TV",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Is there a thrilling crime movie?",
+    "entities": [
+      {
+        "start": 11,
+        "end": 20,
+        "value": "thrilling",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I am going to the movies today and I wonder if there is a documentary movies out there?",
+    "entities": [
+      {
+        "start": 58,
+        "end": 69,
+        "value": "documentary",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

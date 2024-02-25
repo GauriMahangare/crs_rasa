@@ -1,0 +1,586 @@
+[
+  {
+    "text": "hello",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.3729051351547241
+    }
+  },
+  {
+    "text": "hi",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "recommend_collaborative_filtering_u2u",
+      "confidence": 0.4475652575492859
+    }
+  },
+  {
+    "text": "hi again",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "fallback",
+      "confidence": 0.2855590581893921
+    }
+  },
+  {
+    "text": "how can I help you today?",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "fallback",
+      "confidence": 0.571575939655304
+    }
+  },
+  {
+    "text": "hellooo",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "recommend_movie_item2item_search",
+      "confidence": 0.5877462029457092
+    }
+  },
+  {
+    "text": "cee you later",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "request_popular_content",
+      "confidence": 0.3377653658390045
+    }
+  },
+  {
+    "text": "have a nice day",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.5883957743644714
+    }
+  },
+  {
+    "text": "see you around",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.2754417955875397
+    }
+  },
+  {
+    "text": "see you later",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.19864732027053833
+    }
+  },
+  {
+    "text": "of course",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "request_popular_content",
+      "confidence": 0.5721321105957031
+    }
+  },
+  {
+    "text": "that sounds good",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.4782358705997467
+    }
+  },
+  {
+    "text": "no",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9977312684059143
+    }
+  },
+  {
+    "text": "n",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "request_popular_content",
+      "confidence": 0.9282232522964478
+    }
+  },
+  {
+    "text": "no way",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9826973080635071
+    }
+  },
+  {
+    "text": "feeling like a king",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.3897414803504944
+    }
+  },
+  {
+    "text": "I am feeling very good",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.6302815675735474
+    }
+  },
+  {
+    "text": "I am great",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "fallback",
+      "confidence": 0.46852800250053406
+    }
+  },
+  {
+    "text": "I am amazing",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "fallback",
+      "confidence": 0.3513334095478058
+    }
+  },
+  {
+    "text": "I am going to save the world",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.3237123489379883
+    }
+  },
+  {
+    "text": "I don't feel very well",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.834373950958252
+    }
+  },
+  {
+    "text": "I am disappointed",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "fallback",
+      "confidence": 0.5541443824768066
+    }
+  },
+  {
+    "text": "I'm so sad",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "fallback",
+      "confidence": 0.418040007352829
+    }
+  },
+  {
+    "text": "so saad",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9736151695251465
+    }
+  },
+  {
+    "text": "Based on my love for Titanic, what other films do you think I'd enjoy?\"",
+    "intent": "recommend_personalised_recommendation_DNN",
+    "intent_prediction": {
+      "name": "recommend_movie_item2item_search",
+      "confidence": 0.9316175580024719
+    }
+  },
+  {
+    "text": "Any classic films similar to Titanic that capture the essence of a bygone era?",
+    "intent": "recommend_personalised_recommendation_DNN",
+    "intent_prediction": {
+      "name": "request_popular_content",
+      "confidence": 0.38270315527915955
+    }
+  },
+  {
+    "text": "I'm interested in watching highly acclaimed films similar to Titanic. Any suggestions?",
+    "intent": "recommend_personalised_recommendation_DNN",
+    "intent_prediction": {
+      "name": "request_popular_content",
+      "confidence": 0.9591816067695618
+    }
+  },
+  {
+    "text": "Adjust my recommended movies based on my feedback",
+    "intent": "update_preferences",
+    "intent_prediction": {
+      "name": "recommend_personalised_recommendation_DNN",
+      "confidence": 0.7032184600830078
+    }
+  },
+  {
+    "text": "Recommend movies I might not have heard of but would enjoy.",
+    "intent": "surprise_recommendations",
+    "intent_prediction": {
+      "name": "recommend_movie_item2item_search",
+      "confidence": 0.9273645877838135
+    }
+  },
+  {
+    "text": "Show me hidden gems that align with my movie preferences.",
+    "intent": "surprise_recommendations",
+    "intent_prediction": {
+      "name": "recommend_personalised_recommendation_DNN",
+      "confidence": 0.2817630469799042
+    }
+  },
+  {
+    "text": "I want to discover new movies similar to my favorites.",
+    "intent": "surprise_recommendations",
+    "intent_prediction": {
+      "name": "recommend_movie_item2item_search",
+      "confidence": 0.9889955520629883
+    }
+  },
+  {
+    "text": "any movie suggestions?",
+    "intent": "check_for_trending_content",
+    "intent_prediction": {
+      "name": "request_popular_content",
+      "confidence": 0.9931458234786987
+    }
+  },
+  {
+    "text": "Recommend me some popular movies.",
+    "intent": "check_for_trending_content",
+    "intent_prediction": {
+      "name": "request_popular_content",
+      "confidence": 0.3611763119697571
+    }
+  },
+  {
+    "text": "Find films in the action genre.",
+    "intent": "request_popular_content",
+    "intent_prediction": {
+      "name": "search_movies",
+      "confidence": 0.9924058318138123
+    }
+  },
+  {
+    "text": "Search for action movies.",
+    "intent": "request_popular_content",
+    "intent_prediction": {
+      "name": "search_movies",
+      "confidence": 0.8934638500213623
+    }
+  },
+  {
+    "text": "Please suggest a musical movies",
+    "intent": "request_popular_content",
+    "intent_prediction": {
+      "name": "check_for_trending_content",
+      "confidence": 0.7278826236724854
+    }
+  },
+  {
+    "text": "I don't understand.",
+    "intent": "fallback",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.8087903261184692
+    }
+  },
+  {
+    "text": "What time is it?",
+    "intent": "fallback",
+    "intent_prediction": {
+      "name": "check_for_trending_content",
+      "confidence": 0.9624360203742981
+    }
+  },
+  {
+    "text": "good morning",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.3622460961341858
+    }
+  },
+  {
+    "text": "good evening",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.5508089065551758
+    }
+  },
+  {
+    "text": "moin",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "check_for_trending_content",
+      "confidence": 0.2412218302488327
+    }
+  },
+  {
+    "text": "goodevening",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "request_popular_content",
+      "confidence": 0.9999990463256836
+    }
+  },
+  {
+    "text": "good afternoon",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.4928921163082123
+    }
+  },
+  {
+    "text": "cu",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "request_popular_content",
+      "confidence": 0.9999902248382568
+    }
+  },
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "search_movies",
+      "confidence": 0.9820975661277771
+    }
+  },
+  {
+    "text": "good night",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "check_for_trending_content",
+      "confidence": 0.5246602296829224
+    }
+  },
+  {
+    "text": "goodbye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.31017646193504333
+    }
+  },
+  {
+    "text": "y",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "check_for_trending_content",
+      "confidence": 0.31881415843963623
+    }
+  },
+  {
+    "text": "indeed",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9030548334121704
+    }
+  },
+  {
+    "text": "correct",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "update_preferences",
+      "confidence": 0.32781708240509033
+    }
+  },
+  {
+    "text": "never",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.793008029460907
+    }
+  },
+  {
+    "text": "I don't think so",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9653186202049255
+    }
+  },
+  {
+    "text": "don't like that",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.6140616536140442
+    }
+  },
+  {
+    "text": "not really",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9900681972503662
+    }
+  },
+  {
+    "text": "so so perfect",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9963980913162231
+    }
+  },
+  {
+    "text": "so good",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9800675511360168
+    }
+  },
+  {
+    "text": "so perfect",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9631200432777405
+    }
+  },
+  {
+    "text": "exit",
+    "intent": "mood_great",
+    "intent_prediction": {
+      "name": "request_popular_content",
+      "confidence": 0.8503745198249817
+    }
+  },
+  {
+    "text": "my day was horrible",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "update_preferences",
+      "confidence": 0.3745660185813904
+    }
+  },
+  {
+    "text": "no",
+    "intent": "mood_unhappy",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9917300343513489
+    }
+  },
+  {
+    "text": "I prefer movies with a lot of action and suspense, similar to Titanic. Any suggestions?",
+    "intent": "recommend_personalised_recommendation_DNN",
+    "intent_prediction": {
+      "name": "request_popular_content",
+      "confidence": 0.9999991655349731
+    }
+  },
+  {
+    "text": "I'm feeling nostalgic for movies like Titanic from my childhood. What would you recommend?",
+    "intent": "recommend_personalised_recommendation_DNN",
+    "intent_prediction": {
+      "name": "request_popular_content",
+      "confidence": 0.5945795774459839
+    }
+  },
+  {
+    "text": "What movies do users similar to me enjoy?",
+    "intent": "recommend_collaborative_filtering_u2u",
+    "intent_prediction": {
+      "name": "recommend_movie_item2item_search",
+      "confidence": 0.4708961546421051
+    }
+  },
+  {
+    "text": "Show me a variety of movies liked by users similar to me",
+    "intent": "recommend_collaborative_filtering_u2u",
+    "intent_prediction": {
+      "name": "recommend_movie_item2item_search",
+      "confidence": 0.687415361404419
+    }
+  },
+  {
+    "text": "I want to explore different genres, recommend diverse movies",
+    "intent": "surprise_recommendations",
+    "intent_prediction": {
+      "name": "recommend_movie_item2item_search",
+      "confidence": 0.9444487690925598
+    }
+  },
+  {
+    "text": "Recommend movies outside of my usual preferences",
+    "intent": "surprise_recommendations",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.4236021041870117
+    }
+  },
+  {
+    "text": "find movies like",
+    "intent": "recommend_movie_item2item_search",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.3590766489505768
+    }
+  },
+  {
+    "text": "what is trending",
+    "intent": "check_for_trending_content",
+    "intent_prediction": {
+      "name": "request_popular_content",
+      "confidence": 0.35526084899902344
+    }
+  },
+  {
+    "text": "suggest a movie",
+    "intent": "check_for_trending_content",
+    "intent_prediction": {
+      "name": "request_popular_content",
+      "confidence": 0.9999986886978149
+    }
+  },
+  {
+    "text": "Show me family movies, please?",
+    "intent": "request_popular_content",
+    "intent_prediction": {
+      "name": "check_for_trending_content",
+      "confidence": 0.4306188225746155
+    }
+  },
+  {
+    "text": "any fantasy movie suggestions?",
+    "intent": "request_popular_content",
+    "intent_prediction": {
+      "name": "check_for_trending_content",
+      "confidence": 0.9911504983901978
+    }
+  },
+  {
+    "text": "can you recommend some thirller movies to watch?",
+    "intent": "request_popular_content",
+    "intent_prediction": {
+      "name": "check_for_trending_content",
+      "confidence": 0.9567162990570068
+    }
+  },
+  {
+    "text": "Can you recommend a good restaurant?",
+    "intent": "fallback",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.21298526227474213
+    }
+  },
+  {
+    "text": "How's the weather today?",
+    "intent": "fallback",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9116616249084473
+    }
+  }
+]

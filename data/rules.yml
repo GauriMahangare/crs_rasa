@@ -26,23 +26,12 @@ rules:
   steps:
   - intent: recommend_personalised_recommendation_DNN
   - action: recommend_personalised_recommendation_DNN
-#   - action: utter_provide_userid_personalised_recommendation
-
-# - rule: recommend_personalised_recommendation
-#   steps:
-#   - intent: recommend_personalised_recommendation
-#   - action: recommend_personalised_recommendation_DNN
 
 - rule: recommend_collaborative_filtering_u2u
   steps:
   - intent: recommend_collaborative_filtering_u2u
-  # - action: utter_provide_collaborative_filtering_u2u
   - action: recommend_collaborative_filtering_u2u
 
-# - rule: collab_recommendations_for_user_u2u
-#   steps:
-#   - intent: collab_recommendations_for_user_u2u
-#   - action: recommend_collaborative_filtering_u2u
 
 - rule: update_preferences
   steps:

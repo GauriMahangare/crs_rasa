@@ -1,0 +1,174 @@
+{
+  "recommend_collaborative_filtering_u2u": {
+    "precision": 0.8571428571428571,
+    "recall": 0.9230769230769231,
+    "f1-score": 0.888888888888889,
+    "support": 13,
+    "confused_with": {
+      "recommend_movie_item2item_search": 1
+    }
+  },
+  "recommend_personalised_recommendation_DNN": {
+    "precision": 0.8333333333333334,
+    "recall": 0.5555555555555556,
+    "f1-score": 0.6666666666666667,
+    "support": 9,
+    "confused_with": {
+      "recommend_movie_item2item_search": 2,
+      "search_movies": 1
+    }
+  },
+  "search_movies": {
+    "precision": 0.9411764705882353,
+    "recall": 1.0,
+    "f1-score": 0.9696969696969697,
+    "support": 32,
+    "confused_with": {}
+  },
+  "check_for_trending_content": {
+    "precision": 0.8,
+    "recall": 0.7272727272727273,
+    "f1-score": 0.761904761904762,
+    "support": 11,
+    "confused_with": {
+      "request_popular_content": 1,
+      "recommend_movie_item2item_search": 1
+    }
+  },
+  "update_preferences": {
+    "precision": 1.0,
+    "recall": 0.8,
+    "f1-score": 0.888888888888889,
+    "support": 5,
+    "confused_with": {
+      "recommend_personalised_recommendation_DNN": 1
+    }
+  },
+  "mood_unhappy": {
+    "precision": 0.6153846153846154,
+    "recall": 0.8,
+    "f1-score": 0.6956521739130435,
+    "support": 20,
+    "confused_with": {
+      "request_popular_content": 1,
+      "mood_great": 1
+    }
+  },
+  "bot_challenge": {
+    "precision": 0.6666666666666666,
+    "recall": 0.5,
+    "f1-score": 0.5714285714285715,
+    "support": 4,
+    "confused_with": {
+      "request_popular_content": 2
+    }
+  },
+  "recommend_movie_item2item_search": {
+    "precision": 0.9016393442622951,
+    "recall": 0.9821428571428571,
+    "f1-score": 0.9401709401709402,
+    "support": 56,
+    "confused_with": {
+      "search_movies": 1
+    }
+  },
+  "deny": {
+    "precision": 0.375,
+    "recall": 0.42857142857142855,
+    "f1-score": 0.39999999999999997,
+    "support": 7,
+    "confused_with": {
+      "mood_unhappy": 3,
+      "greet": 1
+    }
+  },
+  "goodbye": {
+    "precision": 0.5714285714285714,
+    "recall": 0.4,
+    "f1-score": 0.47058823529411764,
+    "support": 10,
+    "confused_with": {
+      "greet": 4,
+      "request_popular_content": 1
+    }
+  },
+  "fallback": {
+    "precision": 0.5555555555555556,
+    "recall": 0.5,
+    "f1-score": 0.5263157894736842,
+    "support": 10,
+    "confused_with": {
+      "request_popular_content": 1,
+      "mood_unhappy": 1
+    }
+  },
+  "surprise_recommendations": {
+    "precision": 1.0,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.8,
+    "support": 6,
+    "confused_with": {
+      "recommend_movie_item2item_search": 2
+    }
+  },
+  "greet": {
+    "precision": 0.4583333333333333,
+    "recall": 0.6470588235294118,
+    "f1-score": 0.5365853658536585,
+    "support": 17,
+    "confused_with": {
+      "request_popular_content": 3,
+      "mood_unhappy": 1
+    }
+  },
+  "request_popular_content": {
+    "precision": 0.819672131147541,
+    "recall": 0.819672131147541,
+    "f1-score": 0.819672131147541,
+    "support": 61,
+    "confused_with": {
+      "greet": 5,
+      "goodbye": 2
+    }
+  },
+  "mood_great": {
+    "precision": 0.7,
+    "recall": 0.4375,
+    "f1-score": 0.5384615384615384,
+    "support": 16,
+    "confused_with": {
+      "mood_unhappy": 5,
+      "recommend_collaborative_filtering_u2u": 1
+    }
+  },
+  "affirm": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 6,
+    "confused_with": {
+      "mood_great": 2,
+      "greet": 2,
+      "request_popular_content": 1
+    }
+  },
+  "accuracy": 0.7703180212014135,
+  "macro avg": {
+    "precision": 0.6934583049276877,
+    "recall": 0.6367198195601944,
+    "f1-score": 0.6546825576118294,
+    "support": 283
+  },
+  "weighted avg": {
+    "precision": 0.7664776480255693,
+    "recall": 0.7703180212014135,
+    "f1-score": 0.7617171798847281,
+    "support": 283
+  },
+  "micro avg": {
+    "precision": 0.7703180212014135,
+    "recall": 0.7703180212014135,
+    "f1-score": 0.7703180212014135,
+    "support": 283
+  }
+}

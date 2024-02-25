@@ -1,0 +1,55 @@
+{
+  "title": {
+    "precision": 0.9391304347826087,
+    "recall": 0.864,
+    "f1-score": 0.8999999999999999,
+    "support": 125,
+    "confused_with": {
+      "genre": 2
+    }
+  },
+  "search_string": {
+    "precision": 0.8627450980392157,
+    "recall": 0.8,
+    "f1-score": 0.8301886792452831,
+    "support": 55,
+    "confused_with": {
+      "title": 1
+    }
+  },
+  "user": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1,
+    "confused_with": {}
+  },
+  "genre": {
+    "precision": 0.8679245283018868,
+    "recall": 0.7301587301587301,
+    "f1-score": 0.7931034482758621,
+    "support": 63,
+    "confused_with": {
+      "title": 1
+    }
+  },
+  "micro avg": {
+    "precision": 0.9,
+    "recall": 0.8114754098360656,
+    "f1-score": 0.853448275862069,
+    "support": 244
+  },
+  "macro avg": {
+    "precision": 0.6674500152809277,
+    "recall": 0.5985396825396826,
+    "f1-score": 0.6308230318802863,
+    "support": 244
+  },
+  "weighted avg": {
+    "precision": 0.8996784017336141,
+    "recall": 0.8114754098360656,
+    "f1-score": 0.8529749778683191,
+    "support": 244
+  },
+  "accuracy": 0.961128526645768
+}

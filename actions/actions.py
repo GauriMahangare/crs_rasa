@@ -19,54 +19,54 @@ import re
 import random
 # Models for content filtering based on cosine similarity
 similarity = pickle.load(
-    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/content_filtering/cosine_similarity.pkl", 'rb'))
+    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/content_filtering/cosine_similarity.pkl", 'rb'))
 movie_tag_df = pickle.load(
-    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/content_filtering/movies.pkl", 'rb'))
+    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/content_filtering/movies.pkl", 'rb'))
 # Models for content filtering for top trending movies
 top_trending_movies_df = pd.read_csv(open(
-    "/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/data/processed/outputs/top_trending_content.csv", 'r'))
+    "/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/data/processed/outputs/top_trending_content.csv", 'r'))
 genres_df = pd.read_csv(open(
-    "/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/data/processed/entity/entity_movie_genres.csv", 'r'))
+    "/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/data/processed/entity/entity_movie_genres.csv", 'r'))
 # Models for collaborative filtering item-item similarity
 collab_similarity = pd.read_pickle(
-    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/collab_filtering_item_item_similarity/collab_similarity.pkl", 'rb'))
+    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/collab_filtering_item_item_similarity/collab_similarity.pkl", 'rb'))
 collab_ratings_pt_indexes = pd.read_pickle(
-    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/collab_filtering_item_item_similarity/collab_ratings_pt_indexes.pkl", 'rb'))
+    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/collab_filtering_item_item_similarity/collab_ratings_pt_indexes.pkl", 'rb'))
 collab_ratings_pt = pd.read_pickle(
-    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/collab_filtering_item_item_similarity/collab_ratings_pt.pkl", 'rb'))
+    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/collab_filtering_item_item_similarity/collab_ratings_pt.pkl", 'rb'))
 movie_list_full_df = pd.read_csv(open(
-    "/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/data/processed/movieLense/movies_combined_cleaned_title.csv", 'r'))
+    "/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/data/processed/movieLense/movies_combined_cleaned_title.csv", 'r'))
 
 # Models for collaborative filtering user-user similarity
 collab_u2u_similarity = pd.read_pickle(
-    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/collab_filtering_user_user_similarity/collab_similarity.pkl", 'rb'))
+    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/collab_filtering_user_user_similarity/collab_similarity.pkl", 'rb'))
 collab_u2u_ratings_pt = pd.read_pickle(
-    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/collab_filtering_user_user_similarity/collab_ratings_pt.pkl", 'rb'))
+    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/collab_filtering_user_user_similarity/collab_ratings_pt.pkl", 'rb'))
 users_list_df = pd.read_csv(open(
-    "/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/data/processed/movieLense/users.csv", 'r'))
+    "/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/data/processed/movieLense/users.csv", 'r'))
 ratings_df = pd.read_csv(open(
-    "/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/data/processed/movieLense/ratings_short.csv", 'r'))
+    "/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/data/processed/movieLense/ratings_short.csv", 'r'))
 
 # Models for DNN
 # DNN_ratings_model = tf.saved_model.load(
 #     "/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/DNN_ratings_prediction/")
 DNN_ratings_model = tf.keras.models.load_model(
-    "/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/DNN_ratings_prediction/cf_dnn_model")
+    "/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/DNN_ratings_prediction/cf_dnn_model")
 
 DNN_ratings_model_df = pd.read_pickle(
-    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/DNN_ratings_prediction/dnn_ratings_pred_df.pkl", 'rb'))
+    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/DNN_ratings_prediction/dnn_ratings_pred_df.pkl", 'rb'))
 DNN_movie2movie_encoded = pd.read_pickle(
-    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/DNN_ratings_prediction/dnn_movie2movie_encoded.pkl", 'rb'))
+    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/DNN_ratings_prediction/dnn_movie2movie_encoded.pkl", 'rb'))
 DNN_user2user_encoded = pd.read_pickle(
-    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/DNN_ratings_prediction/dnn_user2user_encoded.pkl", 'rb'))
+    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/DNN_ratings_prediction/dnn_user2user_encoded.pkl", 'rb'))
 DNN_movie_encoded2movie = pd.read_pickle(
-    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/DNN_ratings_prediction/dnn_movie_encoded2movie.pkl", 'rb'))
+    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/DNN_ratings_prediction/dnn_movie_encoded2movie.pkl", 'rb'))
 
 # models for matrix factorisation
 U_reg = pd.read_pickle(
-    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/matrix_factorisation/user_embedding.pkl", 'rb'))
+    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/matrix_factorisation/user_embedding.pkl", 'rb'))
 V_reg = pd.read_pickle(
-    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/DS/crs_ds/models/matrix_factorisation/item_embedding.pkl", 'rb'))
+    open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/matrix_factorisation/item_embedding.pkl", 'rb'))
 
 imdb_url = "https://www.imdb.com/title/"
 
@@ -419,46 +419,37 @@ class ActionRecommendCollabFilteringU2U(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        index = int(tracker.sender_id)
-        distances = collab_u2u_similarity[index]
-        similar_users = sorted(
-            list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:30]
-        users = []
-        for u_touple in similar_users:
-            # Append users only if Cosine Similarity > 0.3
-            if u_touple[1] > 0.3:
-                # print("score - " + str(u_touple[1]))
-                users.append(u_touple[0])
-        if not users:
-            print("No users matching with similarity score > 0.3")
-            dispatcher.utter_message(
-                text="[ERROR-2]No users matching with similarity score > 0.3")
-            return []
-        else:
-            movies_watched_by_other_similar_users = ratings_df[ratings_df['user_id'].isin(
-                users)]
-            rated_movies = ratings_df[ratings_df.user_id ==
-                                      index]["imdb_id"].values
-            movies_filtered = movies_watched_by_other_similar_users[movies_watched_by_other_similar_users.imdb_id.apply(
-                lambda imdb_id: imdb_id not in rated_movies)]
-            unique_values_list = movies_filtered['imdb_id'].unique().tolist()[
-                :6]
-            # Movies recommended to this user
-            recomm_movies = movie_list_full_df[movie_list_full_df['imdb_id'].isin(
-                unique_values_list)]
-            m_list = []
-            for index, row in recomm_movies.iterrows():
-                new_list = {'imdb_id': row['imdb_id'],
-                            'title': row['title']}
-                m_list.append(new_list)
-            print(m_list)
-            concatenated_titles_with_ids = ""
-            concatenated_titles_with_ids = ''.join(
-                f"<li><a href={imdb_url}{movie['imdb_id']} target='_blank'> {movie['title']} </a></li>" for movie in m_list)
-            dispatcher.utter_message(
-                text="Here's what others are watching...")
-            dispatcher.utter_message(text=concatenated_titles_with_ids)
-            return []
+        measure = "COSINE"
+        # user_id = random.randint(1, 513)
+        user_id = int(tracker.sender_id)
+        # user_id = int(user_id_input)
+        exclude_rated = "Yes"
+        k = 6  # Number of movies to be recommended
+        query_embedding = V_reg.numpy()[user_id]
+        item_embeddings = V_reg.numpy()
+        df = user_recommendations(
+            measure, query_embedding, item_embeddings)
+        rated_movies = ratings_df[ratings_df.user_id ==
+                                  user_id]["movie_id"].values
+        if exclude_rated == "Yes":
+            # remove movies that are already rated
+            df = df[df.movie_id.apply(
+                lambda movie_id: movie_id not in rated_movies)]
+        recom_movie_df = df.sort_values(
+            ["score_key"], ascending=False).head(k)
+        m_list = []
+        for index, row in recom_movie_df.iterrows():
+            new_list = {'imdb_id': row['movie_id'],
+                        'title': row['titles'],
+                        'genres': row['genres']}
+            m_list.append(new_list)
+        concatenated_titles_with_ids = ""
+        concatenated_titles_with_ids = ''.join(
+            f"<li><a href={imdb_url}{movie['imdb_id']} target='_blank'> {movie['title']} </a></li>" for movie in m_list)
+        dispatcher.utter_message(
+            text="Here's what others are watching..")
+        dispatcher.utter_message(text=concatenated_titles_with_ids)
+        return []
 
 
 class ActionRecommendPersonalisedRecommendationDNN(Action):
