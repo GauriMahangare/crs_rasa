@@ -1,53 +1,53 @@
 {
   "title": {
-    "precision": 0.9818181818181818,
-    "recall": 0.864,
-    "f1-score": 0.9191489361702128,
+    "precision": 0.9722222222222222,
+    "recall": 0.84,
+    "f1-score": 0.9012875536480687,
     "support": 125,
     "confused_with": {
-      "genre": 2
+      "user": 2
     }
   },
-  "user": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1-score": 0.0,
-    "support": 1,
+  "genre": {
+    "precision": 0.896551724137931,
+    "recall": 0.8253968253968254,
+    "f1-score": 0.8595041322314049,
+    "support": 63,
     "confused_with": {}
   },
-  "genre": {
-    "precision": 0.8793103448275862,
-    "recall": 0.8095238095238095,
-    "f1-score": 0.8429752066115702,
-    "support": 63,
+  "user": {
+    "precision": 0.6,
+    "recall": 1.0,
+    "f1-score": 0.7499999999999999,
+    "support": 3,
     "confused_with": {}
   },
   "search_string": {
     "precision": 1.0,
-    "recall": 0.7818181818181819,
-    "f1-score": 0.8775510204081634,
+    "recall": 0.7454545454545455,
+    "f1-score": 0.8541666666666666,
     "support": 55,
     "confused_with": {
-      "title": 2
+      "title": 3
     }
   },
   "micro avg": {
-    "precision": 0.957345971563981,
-    "recall": 0.8278688524590164,
-    "f1-score": 0.887912087912088,
-    "support": 244
+    "precision": 0.9481132075471698,
+    "recall": 0.8170731707317073,
+    "f1-score": 0.8777292576419213,
+    "support": 246
   },
   "macro avg": {
-    "precision": 0.7152821316614419,
-    "recall": 0.6138354978354978,
-    "f1-score": 0.6599187907974866,
-    "support": 244
+    "precision": 0.8671934865900384,
+    "recall": 0.8527128427128428,
+    "f1-score": 0.841239588136535,
+    "support": 246
   },
   "weighted avg": {
-    "precision": 0.955425510046765,
-    "recall": 0.8278688524590164,
-    "f1-score": 0.8863375457387479,
-    "support": 244
+    "precision": 0.9545143756035261,
+    "recall": 0.8170731707317073,
+    "f1-score": 0.8782067935091615,
+    "support": 246
   },
-  "accuracy": 0.9717868338557993
+  "accuracy": 0.9714625445897741
 }

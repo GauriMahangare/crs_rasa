@@ -12,6 +12,18 @@
     "predicted_entities": []
   },
   {
+    "text": "suggest similar movies to Jingle All the Way",
+    "entities": [
+      {
+        "start": 26,
+        "end": 44,
+        "value": "Jingle All the Way",
+        "entity": "title"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
     "text": "suggest similar movies to Rebel Without a Cause",
     "entities": [
       {
@@ -26,66 +38,8 @@
         "entity": "title",
         "start": 26,
         "end": 31,
-        "confidence_entity": 0.6687121987342834,
+        "confidence_entity": 0.4655189514160156,
         "value": "Rebel",
-        "extractor": "DIETClassifier"
-      },
-      {
-        "entity": "title",
-        "start": 40,
-        "end": 47,
-        "confidence_entity": 0.5439916253089905,
-        "value": "a Cause",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "suggest similar movies to Toy Story",
-    "entities": [
-      {
-        "start": 26,
-        "end": 35,
-        "value": "Toy Story",
-        "entity": "title"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "genre",
-        "start": 26,
-        "end": 29,
-        "confidence_entity": 0.3208679258823395,
-        "value": "Toy",
-        "extractor": "DIETClassifier"
-      },
-      {
-        "entity": "genre",
-        "start": 30,
-        "end": 35,
-        "confidence_entity": 0.9186148643493652,
-        "value": "Story",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "suggest similar movies to Shanghai Triad",
-    "entities": [
-      {
-        "start": 26,
-        "end": 40,
-        "value": "Shanghai Triad",
-        "entity": "title"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "title",
-        "start": 26,
-        "end": 34,
-        "confidence_entity": 0.5175135135650635,
-        "value": "Shanghai",
         "extractor": "DIETClassifier"
       }
     ]
@@ -105,7 +59,7 @@
         "entity": "title",
         "start": 37,
         "end": 42,
-        "confidence_entity": 0.9372197389602661,
+        "confidence_entity": 0.9311985373497009,
         "value": "death",
         "extractor": "DIETClassifier"
       }
@@ -121,89 +75,86 @@
         "entity": "title"
       }
     ],
+    "predicted_entities": [
+      {
+        "entity": "title",
+        "start": 26,
+        "end": 34,
+        "confidence_entity": 0.892927348613739,
+        "value": "butterfy",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "search if this black is available to watch",
+    "entities": [
+      {
+        "start": 15,
+        "end": 20,
+        "value": "black",
+        "entity": "search_string"
+      }
+    ],
     "predicted_entities": []
   },
   {
-    "text": "search if this men in is available to watch",
+    "text": "find movies with black in title.",
     "entities": [
       {
-        "start": 15,
-        "end": 21,
-        "value": "men in",
+        "start": 17,
+        "end": 22,
+        "value": "black",
         "entity": "search_string"
       }
     ],
-    "predicted_entities": [
-      {
-        "entity": "search_string",
-        "start": 15,
-        "end": 18,
-        "confidence_entity": 0.876612663269043,
-        "value": "men",
-        "extractor": "DIETClassifier"
-      }
-    ]
+    "predicted_entities": []
   },
   {
-    "text": "find movies by actor Mrs. Sidney Drew",
-    "entities": [
-      {
-        "start": 21,
-        "end": 37,
-        "value": "Mrs. Sidney Drew",
-        "entity": "search_string"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "search_string",
-        "start": 26,
-        "end": 37,
-        "confidence_entity": 0.5578896403312683,
-        "value": "Sidney Drew",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "find movies by actoress Mrs. Sidney Drew",
-    "entities": [
-      {
-        "start": 24,
-        "end": 40,
-        "value": "Mrs. Sidney Drew",
-        "entity": "search_string"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "search_string",
-        "start": 29,
-        "end": 40,
-        "confidence_entity": 0.4477953314781189,
-        "value": "Sidney Drew",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "Search for the movie titled star wars.",
+    "text": "Search for the movie titled Titanic.",
     "entities": [
       {
         "start": 28,
-        "end": 37,
-        "value": "star wars",
+        "end": 35,
+        "value": "Titanic",
         "entity": "search_string"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "search_string",
+        "entity": "title",
         "start": 28,
-        "end": 32,
-        "confidence_entity": 0.9924744963645935,
-        "value": "star",
-        "extractor": "DIETClassifier"
+        "end": 35,
+        "confidence_entity": 0.9977055191993713,
+        "value": "Titanic",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Look up details on the movie named Titanic.",
+    "entities": [
+      {
+        "start": 35,
+        "end": 42,
+        "value": "Titanic",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "title",
+        "start": 35,
+        "end": 42,
+        "confidence_entity": 0.997563362121582,
+        "value": "Titanic",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
       }
     ]
   },
@@ -229,6 +180,48 @@
         "entity": "search_string"
       }
     ],
+    "predicted_entities": [
+      {
+        "entity": "title",
+        "start": 16,
+        "end": 22,
+        "confidence_entity": 0.5261027812957764,
+        "value": "Batman",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Search for movies in the marvel series.",
+    "entities": [
+      {
+        "start": 25,
+        "end": 31,
+        "value": "marvel",
+        "entity": "search_string"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "genre",
+        "start": 25,
+        "end": 31,
+        "confidence_entity": 0.711181640625,
+        "value": "marvel",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Look up films from the marvel universe.",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "value": "marvel",
+        "entity": "search_string"
+      }
+    ],
     "predicted_entities": []
   },
   {
@@ -244,9 +237,17 @@
     "predicted_entities": [
       {
         "entity": "genre",
+        "start": 11,
+        "end": 13,
+        "confidence_entity": 0.5597509741783142,
+        "value": "in",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "genre",
         "start": 18,
         "end": 24,
-        "confidence_entity": 0.9998087286949158,
+        "confidence_entity": 0.9998894929885864,
         "value": "action",
         "extractor": "DIETClassifier",
         "processors": [
@@ -257,7 +258,7 @@
         "entity": "genre",
         "start": 25,
         "end": 30,
-        "confidence_entity": 0.971141517162323,
+        "confidence_entity": 0.939219057559967,
         "value": "genre",
         "extractor": "DIETClassifier"
       }
@@ -278,46 +279,55 @@
         "entity": "genre",
         "start": 21,
         "end": 26,
-        "confidence_entity": 0.9863871335983276,
-        "value": "Crime",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
+        "confidence_entity": 0.9725885987281799,
+        "value": "crime",
+        "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "I am going to the movies today and I wonder if there is a documentary movies out there?",
+    "text": "I want to watch a fantasy movies",
     "entities": [
       {
-        "start": 58,
-        "end": 69,
-        "value": "documentary",
+        "start": 18,
+        "end": 25,
+        "value": "fantasy",
         "entity": "genre"
       }
     ],
     "predicted_entities": []
   },
   {
-    "text": "I am planning a movie night today. What drama movies are there?",
+    "text": "any fantasy movie suggestions?",
     "entities": [
       {
-        "start": 40,
-        "end": 45,
-        "value": "drama",
+        "start": 4,
+        "end": 11,
+        "value": "fantasy",
         "entity": "genre"
       }
     ],
     "predicted_entities": []
   },
   {
-    "text": "Show me family movies, please?",
+    "text": "Can you recommend a history movies?",
     "entities": [
       {
-        "start": 8,
-        "end": 14,
-        "value": "family",
+        "start": 20,
+        "end": 27,
+        "value": "history",
+        "entity": "genre"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Please suggest a musical movies",
+    "entities": [
+      {
+        "start": 17,
+        "end": 24,
+        "value": "musical",
         "entity": "genre"
       }
     ],
@@ -362,8 +372,8 @@
         "entity": "genre",
         "start": 30,
         "end": 36,
-        "confidence_entity": 0.9986831545829773,
-        "value": "Action",
+        "confidence_entity": 0.9995113611221313,
+        "value": "action",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"
@@ -373,7 +383,7 @@
         "entity": "title",
         "start": 62,
         "end": 69,
-        "confidence_entity": 0.9994321465492249,
+        "confidence_entity": 0.9976303577423096,
         "value": "Titanic",
         "extractor": "DIETClassifier",
         "processors": [
@@ -381,18 +391,6 @@
         ]
       }
     ]
-  },
-  {
-    "text": "Find movies liked by users similar to user",
-    "entities": [
-      {
-        "start": 38,
-        "end": 42,
-        "value": "user",
-        "entity": "user"
-      }
-    ],
-    "predicted_entities": []
   },
   {
     "text": "suggest similar movies to Father of the Bride Part II",
@@ -406,10 +404,10 @@
     ],
     "predicted_entities": [
       {
-        "entity": "title",
+        "entity": "genre",
         "start": 26,
         "end": 32,
-        "confidence_entity": 0.9660844802856445,
+        "confidence_entity": 0.45656517148017883,
         "value": "Father",
         "extractor": "DIETClassifier"
       },
@@ -417,7 +415,7 @@
         "entity": "title",
         "start": 36,
         "end": 39,
-        "confidence_entity": 0.9798674583435059,
+        "confidence_entity": 0.9225038290023804,
         "value": "the",
         "extractor": "DIETClassifier"
       },
@@ -425,23 +423,40 @@
         "entity": "title",
         "start": 40,
         "end": 53,
-        "confidence_entity": 0.5352977514266968,
+        "confidence_entity": 0.37635380029678345,
         "value": "Bride Part II",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "suggest similar movies to Get Shorty",
+    "text": "suggest similar movies to Toy Story",
     "entities": [
       {
         "start": 26,
-        "end": 36,
-        "value": "Get Shorty",
+        "end": 35,
+        "value": "Toy Story",
         "entity": "title"
       }
     ],
-    "predicted_entities": []
+    "predicted_entities": [
+      {
+        "entity": "title",
+        "start": 26,
+        "end": 29,
+        "confidence_entity": 0.39062032103538513,
+        "value": "Toy",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "genre",
+        "start": 30,
+        "end": 35,
+        "confidence_entity": 0.870740532875061,
+        "value": "Story",
+        "extractor": "DIETClassifier"
+      }
+    ]
   },
   {
     "text": "suggest similar movies to 8 Heads in a Duffel Bag",
@@ -455,43 +470,42 @@
     ],
     "predicted_entities": [
       {
-        "entity": "title",
+        "entity": "user",
         "start": 26,
         "end": 33,
-        "confidence_entity": 0.7589762210845947,
+        "confidence_entity": 0.5343698859214783,
         "value": "8 Heads",
         "extractor": "DIETClassifier"
       },
       {
         "entity": "title",
         "start": 39,
+        "end": 45,
+        "confidence_entity": 0.9780402183532715,
+        "value": "Duffel",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "title",
+        "start": 46,
         "end": 49,
-        "confidence_entity": 0.7387263774871826,
-        "value": "Duffel Bag",
+        "confidence_entity": 0.42389437556266785,
+        "value": "Bag",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "I loved breave heart, what other movies would I enjoy?",
+    "text": "search if this men in is available to watch",
     "entities": [
       {
-        "start": 8,
-        "end": 20,
-        "value": "breave heart",
-        "entity": "title"
+        "start": 15,
+        "end": 21,
+        "value": "men in",
+        "entity": "search_string"
       }
     ],
-    "predicted_entities": [
-      {
-        "entity": "title",
-        "start": 15,
-        "end": 20,
-        "confidence_entity": 0.6987881660461426,
-        "value": "heart",
-        "extractor": "DIETClassifier"
-      }
-    ]
+    "predicted_entities": []
   },
   {
     "text": "find movies with men in in title.",
@@ -503,16 +517,7 @@
         "entity": "search_string"
       }
     ],
-    "predicted_entities": [
-      {
-        "entity": "search_string",
-        "start": 17,
-        "end": 20,
-        "confidence_entity": 0.8982402086257935,
-        "value": "men",
-        "extractor": "DIETClassifier"
-      }
-    ]
+    "predicted_entities": []
   },
   {
     "text": "find movies directed by Quinton",
@@ -527,194 +532,69 @@
     "predicted_entities": []
   },
   {
-    "text": "Search for the movie titled Titanic.",
+    "text": "Search for the movie titled star wars.",
     "entities": [
       {
         "start": 28,
-        "end": 35,
-        "value": "Titanic",
+        "end": 37,
+        "value": "star wars",
         "entity": "search_string"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "title",
+        "entity": "search_string",
         "start": 28,
-        "end": 35,
-        "confidence_entity": 0.9964509010314941,
-        "value": "Titanic",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      }
-    ]
-  },
-  {
-    "text": "Look up details on the movie named Titanic.",
-    "entities": [
-      {
-        "start": 35,
-        "end": 42,
-        "value": "Titanic",
-        "entity": "search_string"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "title",
-        "start": 35,
-        "end": 42,
-        "confidence_entity": 0.9958664178848267,
-        "value": "Titanic",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      }
-    ]
-  },
-  {
-    "text": "Search for movies in the marvel series.",
-    "entities": [
-      {
-        "start": 25,
-        "end": 31,
-        "value": "marvel",
-        "entity": "search_string"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "genre",
-        "start": 25,
-        "end": 31,
-        "confidence_entity": 0.6105060577392578,
-        "value": "marvel",
+        "end": 32,
+        "confidence_entity": 0.993599534034729,
+        "value": "star",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "Look up films from the marvel universe.",
-    "entities": [
-      {
-        "start": 23,
-        "end": 29,
-        "value": "marvel",
-        "entity": "search_string"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "genre",
-        "start": 23,
-        "end": 29,
-        "confidence_entity": 0.2750796377658844,
-        "value": "marvel",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "Short",
+    "text": "Talk-Show",
     "entities": [
       {
         "start": 0,
-        "end": 5,
-        "value": "Short",
+        "end": 9,
+        "value": "Talk-Show",
         "entity": "genre"
       }
     ],
     "predicted_entities": []
   },
   {
-    "text": "Crime",
+    "text": "I am going to the movies today and I wonder if there is a documentary movies out there?",
     "entities": [
       {
-        "start": 0,
-        "end": 5,
-        "value": "Crime",
+        "start": 58,
+        "end": 69,
+        "value": "documentary",
         "entity": "genre"
       }
     ],
     "predicted_entities": []
   },
   {
-    "text": "Sci-Fi",
+    "text": "I am planning a movie night today. What drama movies are there?",
     "entities": [
       {
-        "start": 0,
-        "end": 6,
-        "value": "Sci-Fi",
+        "start": 40,
+        "end": 45,
+        "value": "drama",
         "entity": "genre"
       }
     ],
     "predicted_entities": []
   },
   {
-    "text": "What are some popular blockbuster action movies currently showing in theaters?",
+    "text": "Show me family movies, please?",
     "entities": [
       {
-        "start": 34,
-        "end": 40,
-        "value": "action",
-        "entity": "genre"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "genre",
-        "start": 22,
-        "end": 33,
-        "confidence_entity": 0.9686910510063171,
-        "value": "blockbuster",
-        "extractor": "DIETClassifier"
-      },
-      {
-        "entity": "genre",
-        "start": 34,
-        "end": 40,
-        "confidence_entity": 0.9999107122421265,
-        "value": "Action",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      }
-    ]
-  },
-  {
-    "text": "I want to watch a fantasy movies",
-    "entities": [
-      {
-        "start": 18,
-        "end": 25,
-        "value": "fantasy",
-        "entity": "genre"
-      }
-    ],
-    "predicted_entities": []
-  },
-  {
-    "text": "Can you recommend a history movies?",
-    "entities": [
-      {
-        "start": 20,
-        "end": 27,
-        "value": "history",
-        "entity": "genre"
-      }
-    ],
-    "predicted_entities": []
-  },
-  {
-    "text": "Please suggest a musical movies",
-    "entities": [
-      {
-        "start": 17,
-        "end": 24,
-        "value": "musical",
+        "start": 8,
+        "end": 14,
+        "value": "family",
         "entity": "genre"
       }
     ],

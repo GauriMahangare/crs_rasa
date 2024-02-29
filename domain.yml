@@ -2,24 +2,28 @@ version: '3.1'
 intents:
 - affirm
 - bot_challenge
-- deny
+- check_for_trending_content
 - fallback
 - goodbye
 - greet
 - mood_great
 - mood_unhappy
-- check_for_trending_content
-- request_popular_content
-- search_movies
+- provide_all_preferences
+- recommend_collaborative_filtering_u2u
 - recommend_movie_item2item_search
 - recommend_personalised_recommendation_DNN
-- recommend_collaborative_filtering_u2u
+- request_current_preferences
+- request_popular_content
+- search_movies
 - surprise_recommendations
-- update_preferences
+- update_all_preferences
+- update_single_genre_dislike
+- update_single_genre_like
 entities:
+- genre_list
+- genre
 - user
 - title
-- genre
 - actor
 - producer
 - director
@@ -27,24 +31,29 @@ entities:
 - lastName
 - search_string
 actions:
+- utter_more_help
+- update_all_preferences
+- utter_provide_preferences
+- utter_movie_categories
+- retrieve_current_preferences
+- utter_goodbye
+- utter_greet
 - recommend_collaborative_filtering_u2u
 - surprise_recommendations
 - recommend_personalised_recommendation_DNN
 - recommend_popular_content
 - utter_popular_genres
 - recommend_movie_item2item_search
-- utter_greet
-- utter_goodbye
 - utter_did_that_help
-- utter_confirm_preferences
 - search_movies
+- provide_all_preferences
+- update_single_genre_like
+- update_single_genre_dislike
 responses:
   utter_greet:
   - text: Hey! How can I help you today?
   utter_did_that_help:
   - text: Did that help you?
-  utter_help_more:
-  - text: Great, Anything else I can help you with?
   utter_goodbye:
   - text: Nice chatting with you! Please don't forget to rate the movie. Bye and happy watching!!.
   utter_sorry_goodbye:
@@ -55,20 +64,37 @@ responses:
   - text: I am a bot, powered by Rasa.
   utter_popular_genres:
   - text: Sure, What genre of movie you want to know about?
-  utter_popular_genres_result:
-  - text: Okay, here are the top trending movies today in.
   utter_catch_all_error:
   - text: I'm sorry, I didn't quite understand your message. Could you please rephrase or provide more details so I can assist you better? Thank you!.
   utter_search_string_not_found:
   - text: Sorry, movie not found
-  utter_genre_not_found:
-  - text: Sorry, genre not found. Please try again.
   utter_more_help:
-  - text: Anything more I can help you with?
+  - text: Great, Anything else I can help you with?
   utter_default:
   - text: Sorry I didn't get that. Can you rephrase?
-  utter_confirm_preferences:
-  - text: Your preferences have been saved.
+  utter_provide_preferences:
+  - text: Please provide your preferred three movie genres from the list below.
+  utter_movie_categories:
+  - text: <li>Documentary</li><li>Animation</li><li>Comedy</li><li>Short</li><li>Romance</li><li>News</li><li>Drama</li><li>Fantasy</li><li>Horror</li><li>Biography</li><li>Music</li><li>Crime</li><li>Family</li><li>Adventure</li><li>Action</li><li>History</li><li>Mystery</li><li>Musical</li><li>War</li><li>Sci-Fi</li><li>Western</li><li>Thriller</li><li>Sport</li><li>Film-Noir</li><li>Talk-Show</li><li>Game-Show</li><li>Adult</li>
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+slots:
+  sl_genre1:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: genre
+  sl_genre2:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: genre
+  sl_genre3:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: genre

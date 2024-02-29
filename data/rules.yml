@@ -32,11 +32,16 @@ rules:
   - intent: recommend_collaborative_filtering_u2u
   - action: recommend_collaborative_filtering_u2u
 
-
-- rule: update_preferences
+- rule: request_preferences
   steps:
-  - intent: update_preferences
-  - action: utter_confirm_preferences
+  - intent: request_current_preferences
+  - action: retrieve_current_preferences
+
+# - rule: update_all_preferences
+#   steps:
+#   - intent: update_all_preferences
+#   - action: update_all_preferences
+
 
 - rule: surprise_recommendations
   steps:
@@ -52,3 +57,13 @@ rules:
   steps:
   - intent: nlu_fallback
   - action: utter_catch_all_error
+
+- rule:  update_single_genre_like
+  steps:
+  - intent: update_single_genre_like
+  - action: update_single_genre_like
+
+- rule: update_single_genre_dislike
+  steps:
+  - intent: update_single_genre_dislike
+  - action: update_single_genre_dislike

@@ -1,85 +1,12 @@
 {
-  "deny": {
-    "precision": 0.5,
-    "recall": 0.5714285714285714,
-    "f1-score": 0.5333333333333333,
-    "support": 7,
-    "confused_with": {
-      "mood_unhappy": 2,
-      "affirm": 1
-    }
-  },
-  "mood_great": {
-    "precision": 0.6875,
-    "recall": 0.6875,
-    "f1-score": 0.6875,
-    "support": 16,
-    "confused_with": {
-      "recommend_movie_item2item_search": 1,
-      "mood_unhappy": 1
-    }
-  },
-  "mood_unhappy": {
-    "precision": 0.6521739130434783,
-    "recall": 0.75,
-    "f1-score": 0.6976744186046512,
-    "support": 20,
-    "confused_with": {
-      "deny": 3,
-      "mood_great": 1
-    }
-  },
-  "search_movies": {
-    "precision": 0.9696969696969697,
-    "recall": 1.0,
-    "f1-score": 0.9846153846153847,
-    "support": 32,
-    "confused_with": {}
-  },
-  "request_popular_content": {
-    "precision": 0.8805970149253731,
-    "recall": 0.9672131147540983,
-    "f1-score": 0.9218749999999999,
-    "support": 61,
-    "confused_with": {
-      "search_movies": 1,
-      "check_for_trending_content": 1
-    }
-  },
-  "recommend_movie_item2item_search": {
-    "precision": 0.8333333333333334,
-    "recall": 0.9821428571428571,
-    "f1-score": 0.9016393442622951,
-    "support": 56,
-    "confused_with": {
-      "mood_unhappy": 1
-    }
-  },
-  "update_preferences": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 5,
-    "confused_with": {}
-  },
   "fallback": {
-    "precision": 0.6,
-    "recall": 0.3,
-    "f1-score": 0.4,
+    "precision": 1.0,
+    "recall": 0.4,
+    "f1-score": 0.5714285714285715,
     "support": 10,
     "confused_with": {
-      "request_popular_content": 2,
-      "mood_unhappy": 2
-    }
-  },
-  "check_for_trending_content": {
-    "precision": 0.8,
-    "recall": 0.7272727272727273,
-    "f1-score": 0.761904761904762,
-    "support": 11,
-    "confused_with": {
-      "request_popular_content": 2,
-      "recommend_movie_item2item_search": 1
+      "mood_unhappy": 2,
+      "request_popular_content": 2
     }
   },
   "surprise_recommendations": {
@@ -88,54 +15,62 @@
     "f1-score": 0.5,
     "support": 6,
     "confused_with": {
-      "request_popular_content": 2,
-      "recommend_movie_item2item_search": 2
+      "recommend_movie_item2item_search": 2,
+      "request_preferences": 1
     }
   },
-  "greet": {
-    "precision": 0.8235294117647058,
-    "recall": 0.8235294117647058,
-    "f1-score": 0.8235294117647058,
-    "support": 17,
+  "mood_great": {
+    "precision": 0.7058823529411765,
+    "recall": 0.8,
+    "f1-score": 0.7500000000000001,
+    "support": 15,
     "confused_with": {
-      "request_popular_content": 1,
-      "goodbye": 1
+      "goodbye": 1,
+      "greet": 1
     }
   },
-  "bot_challenge": {
-    "precision": 1.0,
-    "recall": 0.75,
-    "f1-score": 0.8571428571428571,
-    "support": 4,
+  "recommend_movie_item2item_search": {
+    "precision": 0.9310344827586207,
+    "recall": 0.9642857142857143,
+    "f1-score": 0.9473684210526316,
+    "support": 56,
     "confused_with": {
-      "mood_great": 1
+      "check_for_trending_content": 1,
+      "recommend_personalised_recommendation_DNN": 1
     }
   },
   "recommend_collaborative_filtering_u2u": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 13,
+    "support": 15,
     "confused_with": {}
   },
-  "goodbye": {
-    "precision": 0.7,
-    "recall": 0.7,
-    "f1-score": 0.7,
-    "support": 10,
+  "mood_unhappy": {
+    "precision": 0.8064516129032258,
+    "recall": 0.8928571428571429,
+    "f1-score": 0.8474576271186439,
+    "support": 28,
     "confused_with": {
-      "greet": 2,
-      "mood_unhappy": 1
+      "mood_great": 2,
+      "check_for_trending_content": 1
     }
   },
-  "recommend_personalised_recommendation_DNN": {
-    "precision": 1.0,
-    "recall": 0.2222222222222222,
-    "f1-score": 0.3636363636363636,
-    "support": 9,
+  "check_for_trending_content": {
+    "precision": 0.6428571428571429,
+    "recall": 0.8181818181818182,
+    "f1-score": 0.7200000000000001,
+    "support": 11,
     "confused_with": {
-      "recommend_movie_item2item_search": 7
+      "request_popular_content": 2
     }
+  },
+  "update_preferences": {
+    "precision": 0.8888888888888888,
+    "recall": 1.0,
+    "f1-score": 0.9411764705882353,
+    "support": 8,
+    "confused_with": {}
   },
   "affirm": {
     "precision": 0.6666666666666666,
@@ -143,27 +78,96 @@
     "f1-score": 0.4444444444444444,
     "support": 6,
     "confused_with": {
-      "mood_great": 2,
+      "mood_unhappy": 2,
       "request_popular_content": 1
     }
   },
-  "accuracy": 0.8303886925795053,
+  "goodbye": {
+    "precision": 0.6666666666666666,
+    "recall": 0.4,
+    "f1-score": 0.5,
+    "support": 10,
+    "confused_with": {
+      "greet": 4,
+      "affirm": 1
+    }
+  },
+  "request_preferences": {
+    "precision": 0.8571428571428571,
+    "recall": 1.0,
+    "f1-score": 0.923076923076923,
+    "support": 6,
+    "confused_with": {}
+  },
+  "search_movies": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 32,
+    "confused_with": {}
+  },
+  "repeat_preferences": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
+    "support": 2,
+    "confused_with": {
+      "update_preferences": 1
+    }
+  },
+  "request_popular_content": {
+    "precision": 0.8939393939393939,
+    "recall": 0.9672131147540983,
+    "f1-score": 0.9291338582677166,
+    "support": 61,
+    "confused_with": {
+      "check_for_trending_content": 2
+    }
+  },
+  "recommend_personalised_recommendation_DNN": {
+    "precision": 0.875,
+    "recall": 0.7777777777777778,
+    "f1-score": 0.823529411764706,
+    "support": 9,
+    "confused_with": {
+      "request_popular_content": 1,
+      "recommend_movie_item2item_search": 1
+    }
+  },
+  "greet": {
+    "precision": 0.7058823529411765,
+    "recall": 0.8,
+    "f1-score": 0.7500000000000001,
+    "support": 15,
+    "confused_with": {
+      "mood_unhappy": 2,
+      "goodbye": 1
+    }
+  },
+  "bot_challenge": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 4,
+    "confused_with": {}
+  },
+  "accuracy": 0.8707482993197279,
   "macro avg": {
-    "precision": 0.819593581839408,
-    "recall": 0.6967484732032405,
-    "f1-score": 0.7235809574817997,
-    "support": 283
+    "precision": 0.8612007304532832,
+    "recall": 0.7639401314425422,
+    "f1-score": 0.7831930820240318,
+    "support": 294
   },
   "weighted avg": {
-    "precision": 0.8330631302766326,
-    "recall": 0.8303886925795053,
-    "f1-score": 0.8150869612746464,
-    "support": 283
+    "precision": 0.8751442629468534,
+    "recall": 0.8707482993197279,
+    "f1-score": 0.8607909327072639,
+    "support": 294
   },
   "micro avg": {
-    "precision": 0.8303886925795053,
-    "recall": 0.8303886925795053,
-    "f1-score": 0.8303886925795053,
-    "support": 283
+    "precision": 0.8707482993197279,
+    "recall": 0.8707482993197279,
+    "f1-score": 0.8707482993197279,
+    "support": 294
   }
 }

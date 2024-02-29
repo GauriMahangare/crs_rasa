@@ -49,11 +49,6 @@ stories:
   - intent: recommend_collaborative_filtering_u2u
   - action: recommend_collaborative_filtering_u2u
 
-- story: update_preferences
-  steps:
-  - intent: update_preferences
-  - action: utter_confirm_preferences
-
 - story: surprise_recommendations
   steps:
   - intent: surprise_recommendations
@@ -70,3 +65,42 @@ stories:
   steps:
   - intent: fallback
   - action: utter_catch_all_error
+
+- story: update_all_preferences
+  steps:
+  - intent: update_all_preferences
+  - action: utter_provide_preferences
+  - action: utter_movie_categories
+
+- story: provide_all_preferences
+  steps:
+  - intent: provide_all_preferences
+  - action: update_all_preferences
+  - action: utter_more_help
+
+- story: request_preferences_update
+  steps:
+  - intent: request_current_preferences
+  - action: retrieve_current_preferences
+
+- story: update_single_genre_like
+  steps:
+  - intent: update_single_genre_like
+  - action: update_single_genre_like
+
+- story: update_single_genre_dislike
+  steps:
+  - intent: update_single_genre_dislike
+  - action: update_single_genre_dislike
+
+
+- story: interactive_story_1
+  steps:
+  - intent: update_all_preferences
+  - action: utter_provide_preferences
+  - action: utter_movie_categories
+  - intent: provide_all_preferences
+    entities:
+    - genre_list: romance,news,drama
+  - action: update_all_preferences
+  - action: utter_more_help

@@ -14,8 +14,6 @@ nlu:
     - hey there
     - let's go
     - hey dude
-    - goodmorning
-    - goodevening
     - good afternoon
     - how can I help you today?
     - hellooo
@@ -39,21 +37,11 @@ nlu:
     - of course
     - that sounds good
     - correct
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
 - intent: mood_great
   examples: |
     - perfect
     - great
     - amazing
-    - perfect
     - feeling like a king
     - wonderful
     - I am feeling very good
@@ -65,7 +53,6 @@ nlu:
     - so so perfect
     - so good
     - so perfect
-    - exit
     - thanks
 - intent: mood_unhappy
   examples: |
@@ -89,7 +76,14 @@ nlu:
     - not sure I like any of these
     - I don't like any of these
     - humm, not sure I like any of these
-    -
+    - I don't like your recommendations
+    - these are boaring recommendations
+    - nah! boaring
+    - I don't like any of these recommendations
+    - never
+    - I don't think so
+    - don't like that
+    - no way
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -112,7 +106,9 @@ nlu:
     - What movies do users similar to me enjoy?
     - Show me a variety of movies liked by users similar to me
     - Recommend movies that users with similar tastes liked.
-    - Find movies liked by users similar to [user](user)
+    - Find movies liked by users similar to [1](user)
+    - Find movies liked by users similar to [2](user)
+    - Show movies liked by users similar to [2](user)
     - Show me movies that other users with similar viewing habits enjoyed.
     - What movies are popular among users who liked [Titanic](title)?
     - What are the top-rated movies among users with similar tastes?
@@ -122,13 +118,6 @@ nlu:
     - How do my movie preferences compare to other users?
     - Am I compatible with users who liked [Titanic](title)?
     - Recommend movies that users with similar tastes liked
-- intent: update_preferences
-  examples: |
-    - Update my movie recommendations based on my recent views.
-    - I just watched [Titanic](title), can you adjust my recommendations accordingly?
-    - My tastes have changed, update my recommended movies.
-    - Adjust my recommended movies based on my feedback
-    - I liked [Titanic](title), can you refine my recommendations?
 - intent: surprise_recommendations
   examples: |
     - Recommend movies outside of my usual preferences.
@@ -317,3 +306,55 @@ nlu:
     - How's the weather today?
     - What time is it?
     - Oops, I didn't mean to do that.
+- intent: update_all_preferences
+  examples: |
+    - Update my movie recommendations.
+    - Adjust my recommended movies based on my feedback
+    - I want to update my preferences
+    - I want to change my preferences
+    - Yes, I want to change my preferences
+    - Yes, I want update my preferences
+    - Change my preferences
+    - Update my favorite genres of movies.
+- intent: provide_all_preferences
+  examples: |
+    - Update my prefrences to [drama,action,thirller](genre_list)
+    - Update my prefrences to [musical,romance,horror](genre_list)
+    - Update my prefrences to [Fantasy,Biography,History](genre_list)
+    - Update my prefrences to [romance, news,drama](genre_list)
+    - Save my preferences as [Crime,Family,Adventure](genre_list)
+    - Save my preferences as [War,Sci-Fi,Western](genre_list)
+    - Save my preferences as [romance, news,drama](genre_list)
+    - Update my prefrences to [romance,news,drama](genre_list)
+    - Update my prefrences to [action,thriller, drama](genre_list)
+- intent: update_single_genre_like
+  examples: |
+    - I like [horror](genre) movies.
+    - I love [action](genre) movies.
+    - I prefer [thriller](genre) movies.
+    - I enjoy watching drama](genre) movies.
+    - I find [thriller](genre) movies amazing.
+    - [thriller](genre) movies make me happy.
+- intent: update_single_genre_dislike
+  examples: |
+    - I hate [musical](genre) movies.
+    - I don't like [drama](genre) movies.
+    - I do not like [action](genre) movies.
+    - I detaste [drama](genre) movies.
+    - I find [drama](genre) movies boaring.
+    - [Scary](genre) movies make me nervous.
+- intent: request_current_preferences
+  examples: |
+    - what are my current preferences?
+    - show me my current preferences?
+    - tell me about my preferences
+    - show me what preferences do have about me?
+    - reveal my preferences
+    - show preferences
+- synonym: Titanic
+  examples: |
+    - titanic
+- synonym: butterfly kiss
+  examples: |
+    - butterfy kiss
+    - butterfly kiss

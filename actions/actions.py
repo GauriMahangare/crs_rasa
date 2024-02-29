@@ -7,7 +7,10 @@
 
 # This is a simple example for a custom action which utters "Hello World!"
 
+import json
 from typing import Any, Text, Dict, List
+
+import requests
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
@@ -69,6 +72,51 @@ V_reg = pd.read_pickle(
     open("/Users/gauridhumal/Development Projects/UOL-PROJECTs/CRS/crs_ds/models/matrix_factorisation/item_embedding.pkl", 'rb'))
 
 imdb_url = "https://www.imdb.com/title/"
+
+
+def get_user_profile_by_id(user_id):
+    # Call your API here
+    url = "http://localhost:8000/api/users-profile-by-user/?format=json&user_id=" + user_id
+    payload = {}
+    headers = {
+        'Authorization': 'Token e269631b14eb69bdd2ff3c8522f0b581640e198a'
+    }
+    try:
+        response = requests.request(
+            "GET", url, headers=headers, data=payload, timeout=3)
+        print(response)
+        return response
+    except Exception as e:
+        return response({'Error calling API - get_user_profile_by_id': str(e)})
+
+
+def update_user_profile_api(user_data):
+    url = "http://localhost:8000/api/users-profile/"
+    payload = json.dumps(user_data)
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Token e269631b14eb69bdd2ff3c8522f0b581640e198a'
+    }
+    try:
+        response = requests.request(
+            "POST", url, headers=headers, data=payload, timeout=3)
+        return response
+    except Exception as e:
+        return response({'Error calling API-1 - update_user_profile': str(e)})
+
+
+def update_user_profile(user_id, genre_liked):
+
+    response = get_user_profile_by_id(user_id)
+    if response.status_code == 200:
+        data = response.json()
+        # Extract relevant information from the response and send it back to the user
+        user_data = data['results'][0]
+        user_data['movie_pref_1'] = genre_liked
+        # Call your API  to update
+        return update_user_profile_api(user_data)
+    else:
+        return response({'Error calling API-2 - update_user_profile': str(e)})
 
 
 def remove_special_characters(text):
@@ -507,4 +555,154 @@ class ActionRecommendPersonalisedRecommendationDNN(Action):
         dispatcher.utter_message(
             text="Here's what I have found based on your liking")
         dispatcher.utter_message(text=concatenated_titles_with_ids)
+        return []
+
+
+class ActionRetrieveCurrentPreferences(Action):
+    """
+
+    Args:
+        Action (_type_): Retrieves current user preferecens on the movies
+
+    Returns:
+        _type_: List of genres
+    """
+
+    def name(self) -> Text:
+        return "retrieve_current_preferences"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # user_id = random.randint(1, 513)
+        user_id = tracker.sender_id
+        response = get_user_profile_by_id(user_id)
+        if response.status_code == 200:
+            data = response.json()
+            # Extract relevant information from the response and send it back to the user
+            first_instance = data['results'][0]
+            concatenated_preferences = ""
+            concatenated_preferences = ''.join(
+                f"<li>{first_instance['movie_pref_1']}</li><li>{first_instance['movie_pref_2']}</li><li>{first_instance['movie_pref_3']}</li>")
+            dispatcher.utter_message(
+                text="Here are your current preferences against your profile")
+            dispatcher.utter_message(text=concatenated_preferences)
+        else:
+            dispatcher.utter_message(text="Failed to fetch data from API.")
+        return []
+
+
+class ActionUpdateCurrentPreferences(Action):
+    """
+
+    Args:
+        Action (_type_): Retrieves current user preferecens on the movies
+
+    Returns:
+        _type_: List of genres
+    """
+
+    def name(self) -> Text:
+        return "update_all_preferences"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # user_id = random.randint(1, 513)
+        user_id = tracker.sender_id
+        print(tracker.latest_message['entities'][0]['value'])
+        genre_list = tracker.latest_message['entities'][0]['value']
+        # genre_list = genre_list.replace(" ", "")
+        genre1, genre2, genre3 = (genre.strip()
+                                  for genre in genre_list.split(","))
+
+        response = get_user_profile_by_id(user_id)
+
+        if response.status_code == 200:
+            data = response.json()
+            user_data = data['results'][0]
+            user_data['movie_pref_1'] = genre1
+            user_data['movie_pref_2'] = genre2
+            user_data['movie_pref_3'] = genre3
+            response = update_user_profile_api(user_data)
+            if response.status_code == 200:
+                print(response.text)
+                dispatcher.utter_message(
+                    text="Thanks, I have updated your preferences.")
+            else:
+                dispatcher.utter_message(
+                    text="Failed to fetch data from API2.")
+        else:
+            dispatcher.utter_message(text="Failed to fetch data from API1.")
+        return []
+
+
+class ActionUpdateSingleGenreLike(Action):
+    """
+
+    Args:
+        Action (_type_): Updates preference which user likes
+
+    Returns:
+        _type_: List of genres
+    """
+
+    def name(self) -> Text:
+        return "update_single_genre_like"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        user_id = tracker.sender_id
+        genre_liked = tracker.latest_message['entities'][0]['value']
+        response = update_user_profile(user_id, genre_liked)
+        if response.status_code == 200:
+            print(response.text)
+            dispatcher.utter_message(
+                text="Thanks, I will remember that.")
+        else:
+            dispatcher.utter_message(text="Failed to fetch data from API.")
+        return []
+
+
+class ActionUpdateSingleGenreDisLike(Action):
+    """
+
+    Args:
+        Action (_type_): Removes prefereneces which user does not like
+
+    Returns:
+        _type_: List of genres
+    """
+
+    def name(self) -> Text:
+        return "update_single_genre_dislike"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        user_id = tracker.sender_id
+        genre_disliked = tracker.latest_message['entities'][0]['value']
+        genre_disliked_formatted = genre_disliked.replace(" ", "").lower()
+
+        response = get_user_profile_by_id(user_id)
+        if response.status_code == 200:
+            data = response.json()
+            user_data = data['results'][0]
+            if user_data['movie_pref_1'].lower() == genre_disliked_formatted:
+                user_data['movie_pref_1'] = ""
+            if user_data['movie_pref_2'].lower() == genre_disliked_formatted:
+                user_data['movie_pref_2'] = ""
+            if user_data['movie_pref_3'].lower() == genre_disliked_formatted:
+                user_data['movie_pref_3'] = ""
+            response = update_user_profile_api(user_data)
+            if response.status_code == 200:
+                print(response.text)
+                dispatcher.utter_message(
+                    text="Thanks, I will remember that.")
+            else:
+                dispatcher.utter_message(
+                    text="Failed to fetch data from API2.")
+        else:
+            dispatcher.utter_message(text="Failed to fetch data from API1.")
         return []
