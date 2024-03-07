@@ -75,6 +75,14 @@ imdb_url = "https://www.imdb.com/title/"
 
 
 def get_user_profile_by_id(user_id):
+    """Calls API to get user profil
+
+    Args:
+        user_id (_type_): User id of the logged in user
+
+    Returns:
+        _type_: profile from django application
+    """
     # Call your API here
     url = "http://localhost:8000/api/users-profile-by-user/?format=json&user_id=" + user_id
     payload = {}
@@ -91,8 +99,14 @@ def get_user_profile_by_id(user_id):
 
 
 def update_user_profile_api(user_data):
-    print("====in update_user_profile_api")
-    print(user_data)
+    """Function to call user profile update api
+
+    Args:
+        user_data (_type_): User data to update
+
+    Returns:
+        _type_: status
+    """
     url = "http://localhost:8000/api/users-profile/"
     payload = json.dumps(user_data)
     headers = {
@@ -109,8 +123,15 @@ def update_user_profile_api(user_data):
 
 
 def update_user_profile(user_id, genre_liked):
-    print("====in update_user_profile")
-    print(genre_liked)
+    """ updates user profile
+
+    Args:
+        user_id (string): User id of the user chatting with the bot
+        genre_liked (string): Genre liked by the user.
+
+    Returns:
+        _type_: Updates user profile in Django application
+    """
     response = get_user_profile_by_id(user_id)
     if response.status_code == 200:
         data = response.json()
@@ -160,6 +181,14 @@ def filter_movies_by_preference(recom_movies_df, user_id):
 
 
 def remove_special_characters(text):
+    """Removes special characters from given text
+
+    Args:
+        text (_type_): text to clean
+
+    Returns:
+        _type_: cleaned text
+    """
     # Define a pattern to keep only alphanumeric characters
     pattern = re.compile(r'[^a-zA-Z0-9\s]')
 
@@ -172,6 +201,14 @@ def remove_special_characters(text):
 
 
 def find_index(movie):
+    """searche movie by title
+
+    Args:
+        movie (_type_): movie title
+
+    Returns:
+        _type_: returns matching movies
+    """
     search_value = movie_list_full_df[movie_list_full_df['cleaned_title'].isin(
         [movie])]['imdb_id'].values[0]
     found_tuples = [
@@ -210,6 +247,16 @@ def compute_scores(query_embedding, item_embeddings, measure):
 
 
 def user_recommendations(measure, query_embedding, item_embeddings):
+    """calculates the cosine or dot product of query and item
+
+    Args:
+        measure (_type_): COSINE/DOT
+        query_embedding (_type_): Query can be either input  item or user
+        item_embeddings (_type_): Embeddings generated from the DS matrix factorisation model
+
+    Returns:
+        _type_: Data frame with scores.
+    """
     scores = compute_scores(query_embedding, item_embeddings, measure)
     score_key = measure+"_" + 'score'
     df = pd.DataFrame({
@@ -222,6 +269,18 @@ def user_recommendations(measure, query_embedding, item_embeddings):
 
 
 def movie_neighbours(title_substring, measure, k, query_embedding, item_embeddings):
+    """ Creates list of matching movies
+
+    Args:
+        title_substring (string): Movie title
+        measure (_type_): COSINE/DOT
+        k (_type_): Number of movies to retunr
+        query_embedding (_type_): movie embedding for which similarity score is to be calculated.
+        item_embeddings (_type_): Item embeddings from Matrix factorisation algorithm
+
+    Returns:
+        _type_: Data frame with scores
+    """
     # Select the most matching title
     print(movie_list_full_df.columns)
     title_substring = remove_special_characters(
@@ -705,14 +764,12 @@ class ActionUpdateSingleGenreLike(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        print("===in ActionUpdateSingleGenreLike")
         user_id = tracker.sender_id
         genre_liked = tracker.latest_message['entities'][0]['value']
         print(genre_liked)
         response = update_user_profile(user_id, genre_liked)
         if response.status_code == 200:
             print(response.text)
-            print("=====after update in ActionUpdateSingleGenreLike")
             dispatcher.utter_message(
                 text="Thanks, I will remember that.")
         else:
