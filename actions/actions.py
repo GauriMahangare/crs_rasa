@@ -91,6 +91,8 @@ def get_user_profile_by_id(user_id):
 
 
 def update_user_profile_api(user_data):
+    print("====in update_user_profile_api")
+    print(user_data)
     url = "http://localhost:8000/api/users-profile/"
     payload = json.dumps(user_data)
     headers = {
@@ -100,23 +102,61 @@ def update_user_profile_api(user_data):
     try:
         response = requests.request(
             "POST", url, headers=headers, data=payload, timeout=3)
+        print(response)
         return response
     except Exception as e:
         return response({'Error calling API-1 - update_user_profile': str(e)})
 
 
 def update_user_profile(user_id, genre_liked):
-
+    print("====in update_user_profile")
+    print(genre_liked)
     response = get_user_profile_by_id(user_id)
     if response.status_code == 200:
         data = response.json()
         # Extract relevant information from the response and send it back to the user
         user_data = data['results'][0]
+        print(user_data)
         user_data['movie_pref_1'] = genre_liked
         # Call your API  to update
         return update_user_profile_api(user_data)
     else:
-        return response({'Error calling API-2 - update_user_profile': str(e)})
+        return response({'Error calling API-2 - update_user_profile': response})
+
+
+def filter_movies_by_preference(recom_movies_df, user_id):
+    """Filters movies by user preferences
+
+    Args:
+        Action (_type_): recommendation data frame and user id
+
+    Returns:
+        _type_: filtered movies by user preference
+    """
+    response = get_user_profile_by_id(user_id)
+    if response.status_code == 200:
+        data = response.json()
+        user_profile = data['results'][0]
+        genre_to_search = [user_profile['movie_pref_1'].lower(),
+                           user_profile['movie_pref_2'].lower(
+        ), user_profile['movie_pref_3'].lower()
+        ]
+        movie_in_pref_genres = []
+        for index, row in recom_movies_df.iterrows():
+            genre_list = row.genres.split(',')
+            pref_movie = False
+            for genre in genre_list:
+                if genre in genre_to_search:
+                    pref_movie = True
+            if pref_movie:
+                new_value = "yes"
+                movie_in_pref_genres.append(new_value)
+            else:
+                new_value = "no"
+                movie_in_pref_genres.append(new_value)
+        recom_movies_df['movie_in_pref_genres'] = movie_in_pref_genres
+        df = recom_movies_df[recom_movies_df['movie_in_pref_genres'] == "yes"]
+        return df
 
 
 def remove_special_characters(text):
@@ -363,6 +403,7 @@ class ActionRecommendMovieItem2ItemSearch(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        user_id = int(tracker.sender_id)
         try:
             title_substring = tracker.latest_message['entities'][0]['value']
         except:
@@ -372,7 +413,7 @@ class ActionRecommendMovieItem2ItemSearch(Action):
         else:
             measure = "COSINE"
             score_key = measure+"_" + 'score'
-            k = 6  # Number of movies to be recommended
+            k = 15  # Number of movies to be recommended
             query_embedding = V_reg.numpy()
             item_embeddings = V_reg.numpy()
             df, other_matching_titles = movie_neighbours(
@@ -472,7 +513,7 @@ class ActionRecommendCollabFilteringU2U(Action):
         user_id = int(tracker.sender_id)
         # user_id = int(user_id_input)
         exclude_rated = "Yes"
-        k = 6  # Number of movies to be recommended
+        k = 15  # Number of movies to be recommended
         query_embedding = V_reg.numpy()[user_id]
         item_embeddings = V_reg.numpy()
         df = user_recommendations(
@@ -485,8 +526,10 @@ class ActionRecommendCollabFilteringU2U(Action):
                 lambda movie_id: movie_id not in rated_movies)]
         recom_movie_df = df.sort_values(
             ["score_key"], ascending=False).head(k)
+        recom_movie_filtered_df = filter_movies_by_preference(
+            recom_movie_df, str(user_id))
         m_list = []
-        for index, row in recom_movie_df.iterrows():
+        for index, row in recom_movie_filtered_df.iterrows():
             new_list = {'imdb_id': row['movie_id'],
                         'title': row['titles'],
                         'genres': row['genres']}
@@ -536,15 +579,24 @@ class ActionRecommendPersonalisedRecommendationDNN(Action):
             [user_input, movies_input]).flatten()
         print(user_ratings)
         # Select top 10 movies with highest ratings
-        top_ratings_indices = user_ratings.argsort()[-10:][::-1]
+        top_ratings_indices = user_ratings.argsort()[-20:][::-1]
         # Get the original movie ids for recommended movies
         recommended_movie_ids = [DNN_movie_encoded2movie.get(
             movies_not_watched[x][0]) for x in top_ratings_indices]
         # Movies recommended to this user
         recomm_movies = movie_list_full_df[movie_list_full_df["ml_id"].isin(
             recommended_movie_ids)]
+
+        df_tobefiltered = pd.DataFrame()
+        df_tobefiltered['imdb_id'] = recomm_movies['imdb_id']
+        df_tobefiltered['title'] = recomm_movies['title']
+        df_tobefiltered['genres'] = recomm_movies['genre_tags']
+
+        recom_movie_filtered_df = filter_movies_by_preference(
+            df_tobefiltered, str(user_id))
+
         m_list = []
-        for index, row in recomm_movies.iterrows():
+        for index, row in recom_movie_filtered_df.iterrows():
             new_list = {'imdb_id': row['imdb_id'],
                         'title': row['title']}
             m_list.append(new_list)
@@ -653,11 +705,14 @@ class ActionUpdateSingleGenreLike(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        print("===in ActionUpdateSingleGenreLike")
         user_id = tracker.sender_id
         genre_liked = tracker.latest_message['entities'][0]['value']
+        print(genre_liked)
         response = update_user_profile(user_id, genre_liked)
         if response.status_code == 200:
             print(response.text)
+            print("=====after update in ActionUpdateSingleGenreLike")
             dispatcher.utter_message(
                 text="Thanks, I will remember that.")
         else:
@@ -698,6 +753,7 @@ class ActionUpdateSingleGenreDisLike(Action):
             response = update_user_profile_api(user_data)
             if response.status_code == 200:
                 print(response.text)
+                print(print("=====after update in update_single_genre_dislike"))
                 dispatcher.utter_message(
                     text="Thanks, I will remember that.")
             else:

@@ -104,3 +104,39 @@ stories:
     - genre_list: romance,news,drama
   - action: update_all_preferences
   - action: utter_more_help
+
+- story: interactive_story_1
+  steps:
+  - intent: update_single_genre_dislike
+    entities:
+    - genre: Drama
+  - slot_was_set:
+    - sl_genre1: Drama
+  - slot_was_set:
+    - sl_genre2: Drama
+  - slot_was_set:
+    - sl_genre3: Drama
+  - intent: update_single_genre_like
+    entities:
+    - genre: Drama
+  - action: update_single_genre_like
+  - intent: update_single_genre_dislike
+    entities:
+    - genre: Horror
+  - slot_was_set:
+    - sl_genre1: Horror
+  - slot_was_set:
+    - sl_genre2: Horror
+  - slot_was_set:
+    - sl_genre3: Horror
+  - action: update_single_genre_dislike
+  - intent: update_single_genre_like
+    entities:
+    - genre: action
+  - slot_was_set:
+    - sl_genre1: action
+  - slot_was_set:
+    - sl_genre2: action
+  - slot_was_set:
+    - sl_genre3: action
+  - action: update_single_genre_like

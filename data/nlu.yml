@@ -335,6 +335,8 @@ nlu:
     - I enjoy watching drama](genre) movies.
     - I find [thriller](genre) movies amazing.
     - [thriller](genre) movies make me happy.
+    - I like [Drama](genre) movies
+    - I like [action](genre) movies
 - intent: update_single_genre_dislike
   examples: |
     - I hate [musical](genre) movies.
@@ -343,6 +345,7 @@ nlu:
     - I detaste [drama](genre) movies.
     - I find [drama](genre) movies boaring.
     - [Scary](genre) movies make me nervous.
+    - I dont like [horror]{"entity": "genre", "value": "Horror"} movies
 - intent: request_current_preferences
   examples: |
     - what are my current preferences?

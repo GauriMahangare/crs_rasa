@@ -20,8 +20,8 @@ intents:
 - update_single_genre_dislike
 - update_single_genre_like
 entities:
-- genre_list
 - genre
+- genre_list
 - user
 - title
 - actor
@@ -31,6 +31,8 @@ entities:
 - lastName
 - search_string
 actions:
+- update_single_genre_dislike
+- update_single_genre_like
 - utter_more_help
 - update_all_preferences
 - utter_provide_preferences
@@ -47,8 +49,6 @@ actions:
 - utter_did_that_help
 - search_movies
 - provide_all_preferences
-- update_single_genre_like
-- update_single_genre_dislike
 responses:
   utter_greet:
   - text: Hey! How can I help you today?
